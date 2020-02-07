@@ -1,5 +1,4 @@
 # About
-
 Template repository for Sfeir School, this template could be use to start a school with revealJS and sfeir school theme
 
 Don't forget to replace all xxx by your techno
