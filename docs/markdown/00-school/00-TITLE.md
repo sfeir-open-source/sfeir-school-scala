@@ -2,7 +2,7 @@
 
 # **Welcome to Sfeir School**
 
-## **XXX 200**
+## **Scala 200**
 
 ##==##
 
