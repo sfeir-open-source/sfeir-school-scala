@@ -8,11 +8,13 @@
 
 # Hello World
 
+<div data-scalafiddle data-layout="h50">
 ```scala
 object Main extends App {
   println("Hello world")
 }
 ```
+</div>
 
 ##--##
 
@@ -22,12 +24,13 @@ object Main extends App {
 
 ## `val` vs `var`
 
-```scala
+<div data-scalafiddle data-layout="v50"> <pre ><code data-trim data-noescape class="scala">
 val x = 1
 x = 2; // compilation error
 var y = 2
-y = 3;
-```
+y = 3
+</code></pre></div>
+
 
 Notes:
 
@@ -73,13 +76,17 @@ if(isTrue("true")) {
 
 ## En Scala
 
-```Scala
+<div data-scalafiddle data-layout="v50"> <pre ><code data-trim data-noescape class="scala">
+def isTrue(s: String) = true
+
 val text = if(isTrue("true")) {
-    "it's true"
+"it's true"
 } else {
-    "it's false"
+"it's false"
 }
-```
+
+println(text)
+</code></pre> </div>
 
 ##--##
 
@@ -88,10 +95,19 @@ val text = if(isTrue("true")) {
 # Les fonctions
 
 ## mot-clé `def`
-
-```scala
+<scala-fiddle>
 def increment(x: Int): Int = x + 1
-```
+</scala-fiddle>
+<div data-scalafiddle data-layout="v50" data-theme="dark"><pre><code data-trim data-noescape class="scala">
+      def increment(x: Int): Int = x + 1
+</code></pre></div> 
+
+<pre><code data-trim data-noescape class="scala">
+      def increment(x: Int): Int = x + 1
+    </code></pre>
+Notes:
+
+Vous pouvez mettre des accolades s'il y a plusieurs lignes
 
 ##--##
 
@@ -101,14 +117,14 @@ def increment(x: Int): Int = x + 1
 
 ## Paramètres nommés
 
-```scala
+<div data-scalafiddle data-layout="v50"> <pre ><code data-trim data-noescape class="scala">
 def writeToConsole(x: Int, y: Int): Unit ={
   println(s"x = $x, y = $y")
 }
 
 writeToConsole(1, 2) // x = 1, y = 2
 writeToConsole(y = 1, x = 2) // x = 2, y = 1
-```
+</code></pre> </div> 
 
 ##--##
 
@@ -116,12 +132,18 @@ writeToConsole(y = 1, x = 2) // x = 2, y = 1
 
 # Les fonctions
 
-## Groupe de paramètre
+## Paramètres optionels
 
 ```scala
-def add(x: Int)(y: Int): Int = x + y
+def writeToConsole(x: String = "XXX", y: String = "BAZ"): Unit = {
+  println(s"x = $x, y = $y")
+}
 
-add(1)(2) // 3
+writeToConsole("FOO", "BAR")
+writeToConsole(y = "BAR", x = "FOO")
+writeToConsole("FOO")
+writeToConsole(y = "FOO")
+writeToConsole()
 ```
 
 ##--##
@@ -157,7 +179,6 @@ Animal("Scoubidou", "Chien")
 
 Notes:
 
-- pas de `new` on verra pourquoi plus tard
 - contrairement au `class`: `equals`, `getter`
 - méthode `copy` (immutable !)
 - les 2: paramètres nommés
@@ -184,7 +205,7 @@ Permet de faire un singleton
 
 ```scala
 object SuperDog {
-  def say() = println("Super ouf")
+  def say() = println("Super woof")
 }
 
 SuperDog.say()
@@ -265,7 +286,7 @@ add1(2)
 - CE N'EST PAS UNE LISTE OU UN TABLEAU
 - Proche d'une `case class` dans le principe
 - a utiliser localement (en interne d'une fonction) plutôt que comme retour: un **tuple** n'a pas de **nom** donc pas de **sens**
-- ne pas dépasser des **tuple-3**, sinon on perd le **sens**
+- conseil: ne pas dépasser des **tuple-3**, sinon on perd le **sens**
 
 ##--##
 
@@ -407,11 +428,11 @@ Notes:
 
 Notes:
 
-* mot clé `match`
-* l'ordre compte
-* Scala peut dire si un `case` est inatteignable (dans certaines limite)
-* utilisable a la déclaration `val (a,b) = (1,2)`
-##--##
+- mot clé `match`
+- l'ordre compte
+- Scala peut dire si un `case` est inatteignable (dans certaines limite)
+- utilisable a la déclaration `val (a,b) = (1,2)`
+  ##--##
 
 <!-- .slide: class="sfeir-bg-pink exercice" -->
 
