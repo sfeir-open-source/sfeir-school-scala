@@ -1,0 +1,27 @@
+{"scala code": {
+		"scope": "markdown,md",
+		"prefix": "code",
+		"body": [
+			"<div data-scalafiddle data-layout=\"h50\"><pre><code data-trim data-noescape class=\"scala\">",
+			"$0",
+			"</code></pre></div>"
+		]
+	},
+	"new default slide": {
+		"scope": "markdown,md",
+		"prefix": "#",
+		"body": [
+			"##--##",
+			"<!-- .slide: class=\"sfeir-bg-white-1 with-code-dark big-code\" -->",
+			"# $0"
+		], "description": "Default SFEIR School slide"
+	},
+	"new exercice": {
+		"scope": "markdown",
+		"prefix": "ex",
+		"body": [
+			"##--##",
+"<!-- .slide: class=\"sfeir-bg-pink exercice\" -->",
+"## Exercice"]
+	}
+}
