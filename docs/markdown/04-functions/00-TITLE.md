@@ -151,8 +151,8 @@ println(s"evaluate it at each call $eachTime")
 
 ## _call by name_ vs _call by value_
 
-* **call by value**: paramètre évalué à l'appel de méthode
-* **call by name**: paramètre évalué s'il est utilisé
+* **call by value**: paramètre évalué à **l'appel de méthode**
+* **call by name**: paramètre évalué **s'il est utilisé**
 
 <div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
 var isDebugEnabled = true
