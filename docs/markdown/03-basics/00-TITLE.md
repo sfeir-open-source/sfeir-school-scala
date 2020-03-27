@@ -143,34 +143,92 @@ writeToConsole()
 </code></pre></div>
 
 ##--##
-
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Les fonctions
 
-# Ordre d'évaluation
+## Une fonction dans une fonction
 
 <div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
-println("= Using val")
+def greatherThan5(x: Int): Unit = {
+  if(x >= 5) {
+    println(s"$x est plus grand que 5")
+  } else {
+    println(s"$x est plus petit que 5")
+  }
+}
+
+greatherThan5(5)
+greatherThan5(3)
+greatherThan5(7)
+</code></pre></div>
+
+Notes:
+
+* Imaginez qu'on a une **condition complexe**, avec des dépendances externes
+* Avantage: limiter l'utilisation de fonction _privée_
+
+
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Les Fonctions
+
+## Groupe de paramètres
+
+Une fonction peut avoir plusieurs groupe de paramètres
+
+<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+def add(x:Int)(y:Int) = println(s"$x + $y = ${x+y}")
+
+add(1)(2)
+</code></pre></div>
+
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Evaluation
+## `val` vs `lazy val` vs `def`
+
+**`val`** évaluation **immediate** et **une seule fois**
+
+<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
 val evaluatedAtCreation = {
   println("Evaluated at creation 🔥")
   1
 }
 
+println("After init")
 println(evaluatedAtCreation)
+println(evaluatedAtCreation)
+</code></pre></div>
 
-println("= Using lazy val")
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Evaluation
+## `val` vs `lazy val` vs `def`
+
+**`lazy val`** évaluation au **premier appel** et **une seule fois**
+
+<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
 lazy val lazyEvaluation = {
-println("lazy 😴")
-2
+  println("lazy 😴")
+  2
 }
 
 println("not yet evaluated")
+println(s"evalute it now ! $lazyEvaluation")
+println(s"evalute it now ! $lazyEvaluation")
+</code></pre></div>
 
-println(s"evalute it now ! \$lazyEvaluation")
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Evaluation
+## `val` vs `lazy val` vs `def`
 
-println("= Using def")
+**`def`**: évaluation a **l'appel** et **a chaque fois**
+
+<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
 def eachTime = {
-println("each time ⏳")
-3
+  println("each time ⏳")
+  3
 }
 
 println("not yet evaluated")
@@ -178,6 +236,66 @@ println(s"evaluate it at each call $eachTime")
 println(s"evaluate it at each call $eachTime")
 </code></pre></div>
 
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Evaluation
+
+## _call by name_ vs _call by value_
+
+* **call by value**: paramètre évalué à l'appel de méthode
+* **call by name**: paramètre évalué s'il est utilisé
+
+<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+var isDebugEnabled = true
+def logDebug(string: String): Unit = if (isDebugEnabled) println(string)
+
+logDebug({
+  println("evaluated at call site")
+  "Hello world"
+})
+
+isDebugEnabled = false
+
+logDebug({
+  println("never evaluated")
+  "Nope"
+})
+</code></pre></div>
+
+Notes:
+
+Ajouter le `=>` dans la fonction `logDebug`
+
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Inférence de type
+
+_Où quand le compilateur il sait mieux que toi ce que tu fais_
+
+* le compilateur _sait_ le type d'une valeur/fonction
+* **Par contre** c'est mieux de l'écrire:
+  * on dit explicitement au compilateur quel type on veut
+  * on documente le code
+
+<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+val message = "Hello world"
+
+def inc(x: Int) = x + 1
+
+println(
+  s"""
+     |$message: ${message.getClass}
+     |${inc(1)}: ${inc(1).getClass}
+     |""".stripMargin)
+</code></pre></div>
+
+Notes:
+
+* _on dit explicitement au compilateur quel type on veut_:
+  * si on se trompe on aura une erreur de compilation
+* _on documente le code_:
+  * pour nos collègues
+  * pour nous même dans 2 semaines quand on aura oublié ce que fait la fonction
 ##--##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
@@ -288,6 +406,20 @@ inc(2)
 inc.apply(3)
 </code></pre></div>
 
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Alias de type
+
+On peut _aliaser_ un type avec `type`
+
+<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+type Name = String
+type Password = String
+
+def login(name: Name, password: Password) = println(s"$name successfully log in")
+
+login("John", "pwd123")
+</code></pre></div>
 ##--##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
@@ -400,7 +532,7 @@ Notes:
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
-# Fonctions
+# Les Fonctions
 
 ## Avec des symboles
 
@@ -433,7 +565,7 @@ Notes:
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
-# Fonctions
+# Les Fonctions
 
 # Comme opérateur
 
@@ -566,13 +698,6 @@ println(ints)
 2. extraire des données
 3. en faire quelque-chose
 
-Notes:
-
-- mot clé `match`
-- l'ordre compte
-- Scala peut dire si un `case` est inatteignable (dans certaines limite)
-- utilisable a la déclaration `val (a,b) = (1,2)`
-
   ##--##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
@@ -613,11 +738,13 @@ println(head(List()))
 case class Hero(name: String, power: Int)
 
 def print(hero: Hero) = hero match {
-case Hero(name, power) => s"$name has power $power"
+  case Hero(name, power) => s"$name has power $power"
 }
 
 println(print(Hero("foo", 100)))
 </code></pre></div>
+
+✅Ajouter un cas _nested_ `Hero(Name(name))`
 
 ##--##
 
@@ -629,12 +756,20 @@ println(print(Hero("foo", 100)))
 case class Hero(name: String, power: Int)
 
 def print(hero: Hero) = {
-val Hero(name, power) = hero
-s"$name has power $power"
+  val Hero(name, power) = hero
+  s"$name has power $power"
 }
 
 println(print(Hero("foo", 100)))
 </code></pre></div>
+
+Notes: 
+
+ça marche aussi pour des 
+```scala
+val (x,y) = (1,2) // tuples
+val head :: _ = List(1,2,3) // listes
+```
 
 ##--##
 
@@ -655,6 +790,52 @@ println(firstTwo(List("foo")))
 println(firstTwo(List()))
 </code></pre></div>
 
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Pattern matching: plusieurs possibilités
+
+On peut faire un `case` pour plusieurs valeurs
+
+<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+def isVoyel(c: Char) = c match {
+  case 'a' | 'e' | 'i' | 'o' | 'u' => true
+  case _ => false
+}
+
+println(
+  s"""
+     |a: ${isVoyel('a')}
+     |b: ${isVoyel('b')}
+     |""".stripMargin)
+</code></pre></div>
+
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Pattern matching: plusieurs possibilités
+
+On peut aussi utiliser `if` dans `case`
+
+<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+def isVoyel(c: Char) = {
+  def isIn(x: Char) = List('a','e','i','o','u').contains(x) // on pourrait réduire la fonction  a cette ligne 😁
+  
+  c match {
+    case char if isIn(char) => true
+    case _ => false
+  }
+}
+
+println(
+  s"""
+     |a: ${isVoyel('a')}
+     |b: ${isVoyel('b')}
+     |""".stripMargin)
+</code></pre></div>
+
+Notes:
+
+On est d'accord que cette implémentation est *foireuse*, le `List().contains` est plus lisible !
+C'est un exemple 😁
 ##--##
 
 <!-- .slide: class="sfeir-bg-pink exercice" -->
@@ -686,6 +867,30 @@ println(result)
 ```
 
 ##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Exception
+
+Comme en Java, `throw` pour lever une `Exception`
+
+```scala
+throw new Exception("fail !!!")
+```
+
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Exception
+
+`try catch` pour _attraper_ une `Exception`
+
+<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+try {
+  throw new Exception("oups")
+} catch {
+  case e => println(e.getMessage)
+}
+</code></pre></div>
+
+##--##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
@@ -714,6 +919,26 @@ println(f(g(h(1))))
 val fn = f.andThen(g).andThen(h)
 println(fn(1))
 ```
+
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Les Fonctions
+
+## Groupe de paramètres
+
+<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+case class Person(name: String)
+
+class Repository {
+  def save(p: Person): Unit = println(s"save $p")
+}
+
+def inTransaction(repository: Repository)(f: Repository => Unit) = f(repository)
+
+inTransaction(new Repository) { repo =>
+  repo.save(Person("Jane"))
+}
+</code></pre></div>
 
 ##--##
 
@@ -935,5 +1160,159 @@ map(List(1,2), (_: Int) + 1)
 
 ##--##
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
-# Hiérarchie de type
+# Les `trait`s
 
+Comme une `interface` en Java mais avec la possibilité d'implémenter des méthodes
+
+<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+trait Votant {
+  def age: Int
+  
+  val canVote:Boolean = age > 18
+}
+
+case class Person(name: String, age: Int) extends Votant
+
+println(Person("John", 19).canVote)
+</code></pre></div>
+
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Les `trait`s: Héritage en diamant
+
+![Héritage en diamant](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Diamond_inheritance.svg/440px-Diamond_inheritance.svg.png)
+
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Les `trait`s: Héritage en diamant
+
+Prendre le `trait` le plus a droite
+
+<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+trait Animal {
+  def say: String
+}
+
+trait Dog extends Animal {
+  override val say = "ouaf"
+}
+
+trait Robot extends Animal {
+  override val say = "grzzz"
+}
+
+case class CyberDog() extends Dog with Robot
+
+println(CyberDog().say)
+</code></pre></div>
+
+Notes:
+
+Ajouter:
+
+* `case class DogBot() extends Robot with Dog`
+* `println(DogBot().say)`
+
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Les `trait`s: Mixins
+
+Un **type** peut implémenter plusieurs `trait`
+
+<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+trait Repository[A] {
+  def save(a: A): Unit
+}
+
+trait Connexion {
+  val cnxString: String= "please-connect-to-db"
+}
+
+case class Person(name: String)
+
+class PersonRepository extends Repository[Person] with Connexion {
+  def save(person: Person) = {
+    println(s"Connect with [$cnxString]")
+    println(s"save $person")
+  }
+}
+
+new PersonRepository().save(Person("John"))
+</code></pre></div>
+
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Les `trait`s: Mixins
+
+⚠️Utiliser les **mixins** pour du comportement (fonction) plutôt que de la donnée 
+
+Notes:
+
+Dans l'exemple précédent il ne serai pas facile de remplacer la **chaine de connexion** dans `Connexion`
+
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Les `trait`s scellés
+
+Avec un `trait` on peut facilement représenter une _famille_ de type:
+
+<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+trait Feu
+case object Rouge extends Feu
+case object Vert extends Feu
+
+def switch(feu: Feu): Feu = feu match {
+  case Rouge => Vert
+  case Vert  => Rouge
+}
+
+println(switch(Rouge))
+println(switch(Vert))
+</code></pre></div>
+
+Notes:
+
+1. Ajouter le `case object Orange`: montrer l'échec du _pattern matching_
+2. Ajouter `sealed` sur le `trait`: montrer le warning sur le _pattern matching_
+3. Passer sur intellij avec:
+   * `scalacOptions += "-Xfatal-warnings"` dans `build.sbt`
+   * ⚠️dans un fichier **scala** pas un **worksheet**⚠️
+
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Les `trait`s scellés
+
+* `sealed` empêche d'étendre le `trait` en dehors de son fichier de déclaration
+* le `trait` scellé et ces sous-types forment un **A**lgebraic **D**ata **T**ype: **ADT**
+
+##--##
+<!-- .slide: class="sfeir-bg-pink exercice" -->
+## Exercice
+
+Faire un **ADT** pour **`Maybe`**
+
+**`Maybe`** fonctionne comme une **`Option`**, avec
+
+* **`Some`** => **`Just`**
+* **`None`** => **`Empty`**
+
+💡**`Nothing`** est un type spéciale de Scala, qui étend **tous** les types
+
+💡le **compilateur** est votre **ami** => _RTFM_ !
+
+Notes:
+
+Solution:
+
+```scala
+sealed trait Maybe[+A] // +A equivalent a `? extends A`
+case class Just[A](a: A) extends Maybe[A]
+case object Empty extends Maybe[Nothing]
+
+def head[A](xs: List[A]): Maybe[A] = xs match {
+  case x :: _ => Just(x)
+  case Nil => Empty
+}
+
+println(head(List("foo","bar")))
+```
