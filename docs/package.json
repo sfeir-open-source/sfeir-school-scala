@@ -1,5 +1,5 @@
 {
-  "name": "sfeirschoolxxx",
+  "name": "sfeirschoolscala",
   "version": "1.0.0",
   "description": "Sfeir School XXX with revealJS",
   "scripts": {
@@ -16,7 +16,7 @@
     "url": "git+https://github.com/sfeir-open-source/sfeir-school-template.git"
   },
   "keywords": [
-    "xxx",
+    "scala",
     "sfeir"
   ],
   "author": "jefbinomed",

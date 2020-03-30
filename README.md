@@ -19,7 +19,7 @@ A [SFEIR School](https://www.sfeir.com/formation/school/)
 
 ![logo](https://www.sfeir.com/img/school/formations/xxx.png)
 
-[Planning, trainers and other details](https://www.sfeir.com/formation/school/xxx/)
+[Planning, trainers and other details](https://www.sfeir.com/formation/school/scala/)
 
 # Slides
 
