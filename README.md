@@ -19,8 +19,8 @@ A [SFEIR School](https://www.sfeir.com/formation/school/)
 
 ![logo](https://www.sfeir.com/img/school/formations/xxx.png)
 
-[Planning, trainers and other details](https://www.sfeir.com/formation/school/xxx/)
+[Planning, trainers and other details](https://www.sfeir.com/formation/school/scala/)
 
 # Slides
 
-You can view the slides [here](https://sfeir-open-source.github.io/sfeir-school-xxx/).
+You can view the slides [here](https://sfeir-open-source.github.io/sfeir-school-scala/).

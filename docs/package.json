@@ -1,7 +1,7 @@
 {
-  "name": "sfeirschoolxxx",
+  "name": "sfeirschoolscala",
   "version": "1.0.0",
-  "description": "Sfeir School XXX with revealJS",
+  "description": "Sfeir School Scala with revealJS",
   "main": "index.js",
   "scripts": {
     "sass": "node-sass scss/scala.scss -o ./css/ --source-map=true --watch=\\\"scss\\\" --recursive=\\\"scss\\\"",
@@ -15,7 +15,7 @@
     "url": "git+https://github.com/jefBinomed/SfeirSchoolTheme.git"
   },
   "keywords": [
-    "xxx",
+    "scala",
     "sfeir"
   ],
   "author": "jefbinomed",
