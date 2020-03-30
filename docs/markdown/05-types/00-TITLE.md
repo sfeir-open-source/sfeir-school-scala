@@ -34,6 +34,10 @@ Notes:
 
 # Les classes
 
+## `class`
+
+On peut faire des classes
+
 <div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
 class Animal(name: String) {
 }
@@ -55,6 +59,8 @@ pas de `getter`, `equals`...
 
 ## `case class`
 
+Mais les `case class` c'est beaucoup mieux
+
 <div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
 case class Animal(name: String, species: String)
 
@@ -69,7 +75,7 @@ Démo:
 2. `equals` automatique
 3. `getter` automatique
 4. `copy` (immuable), la valeur copiée ne change pas
-5. ajout des méthodes `def say(s: String) = s"$name say $s"`
+5. ajout de méthodes `def say(s: String) = s"$name say $s"`
 
 ##--##
 
@@ -86,9 +92,7 @@ Mon conseil:
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
-# Les classes
-
-## Les `object`s
+# Les `object`s
 
 Permet de faire un singleton
 
@@ -111,22 +115,22 @@ En terme d'usage, c'est comme un `static` en java tout en étant très OOP: un `
 # Les `object`s
 
 <div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
-class Animal
+class Number
 
-object Scoubidou extends Animal
-object Lassie extends Animal
+object One extends Number
+object Two extends Number
 
-println(s"Scoubidou == Lassie    ? ${Scoubidou == Lassie}")
-println(s"Scoubidou == Scoubidou ? ${Scoubidou == Scoubidou}")
+println(s"$One == $Two ? ${One == Two}")
+println(s"$One == $One ? ${One == One}")
 
-def say(animal: Animal) = println(s"Hello $animal")
+def say(number: Number) = println(s"You say $number")
 
-say(Scoubidou)
+say(One)
 </code></pre></div>
 
 Notes:
 
-1. Ajouter `case` a `Scoubidou` pour montrer qu'on a le `toString`
+1. Ajouter `case` a `One` pour montrer qu'on a le `toString`
 ##--##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
@@ -138,15 +142,13 @@ Notes:
 Pour des méthodes communes
 
 <div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
-case class Animal(name: String, species: String)
+case class Number(i: Int)
 
-object Animal {
-    def say(a: Animal): Unit = {
-        if (a.species == "Chien") println(s"\${a.name} say woof")
-    }
+object Number {
+  def plus(x: Number, y:Number) = Number(x.i + y.i)
 }
 
-Animal.say(Animal("Pluto", "Chien"))
+println(Number.plus(Number(1), Number(2)))
 </code></pre></div>
 
 Notes:
