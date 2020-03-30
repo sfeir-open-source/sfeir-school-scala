@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "scala.css",
+	"sources": [
+		"../scss/scala.scss"
+	],
+	"names": [],
+	"mappings": "AAAA,AACI,OADG,CAAC,OAAO,CAAC,OAAO,CACnB,IAAI,CAAC;EACN,SAAS,EAAE,gBAAgB,GAC3B"
+}
