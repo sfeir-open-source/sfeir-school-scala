@@ -43,16 +43,15 @@ println(head(List()))
 # Pattern matching: voir le motif (2)
 
 <div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
-case class Hero(name: String, power: Int)
+case class Name(name: String)
+case class Hero(name: Name, power: Int)
 
 def print(hero: Hero) = hero match {
-  case Hero(name, power) => s"$name has power $power"
+  case Hero(Name(name), power) => s"$name has power $power"
 }
 
-println(print(Hero("foo", 100)))
+println(print(Hero(Name("foo"), 100)))
 </code></pre></div>
-
-✅Ajouter un cas _nested_ `Hero(Name(name))`
 
 ##--##
 

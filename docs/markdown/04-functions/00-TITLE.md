@@ -23,12 +23,10 @@ Vous pouvez mettre des accolades s'il y a plusieurs lignes
 ## Paramètres nommés
 
 <div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
-def writeToConsole(x: Int, y: Int): Unit ={
-  println(s"x = $x, y = $y")
-}
+def writeToConsole(s1: String, s2: String): Unit = println(s"$s1 $s2")
 
-writeToConsole(1, 2) // x = 1, y = 2
-writeToConsole(y = 1, x = 2) // x = 2, y = 1
+writeToConsole("foo", "bar") // x = 1, y = 2
+writeToConsole(s2 = "foo", s1 = "bar") // x = 2, y = 1
 </code></pre></div>
 
 ##--##
@@ -40,19 +38,19 @@ writeToConsole(y = 1, x = 2) // x = 2, y = 1
 ## Paramètres optionels
 
 <div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
-def writeToConsole(x: String = "XXX", y: String = "BAZ"): Unit = {
-  println(s"x = $x, y = $y")
-}
+def writeToConsole(s1: String = "nope", s2: String = "nope"): Unit = println(s"$s1 $s2")
 
 writeToConsole("FOO", "BAR")
-writeToConsole(y = "BAR", x = "FOO")
+writeToConsole(s2 = "BAR", s1 = "FOO")
 writeToConsole("FOO")
-writeToConsole(y = "FOO")
+writeToConsole(s2 = "FOO")
 writeToConsole()
 </code></pre></div>
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Les fonctions
 
 ## Une fonction dans une fonction
@@ -73,12 +71,12 @@ greatherThan5(7)
 
 Notes:
 
-* Imaginez qu'on a une **condition complexe**, avec des dépendances externes
-* Avantage: limiter l'utilisation de fonction _privée_
-
+Imaginez qu'on a une **condition complexe**, avec des dépendances externes
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Les Fonctions
 
 ## Groupe de paramètres
@@ -92,8 +90,11 @@ add(1)(2)
 </code></pre></div>
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Evaluation
+
 ## `val` vs `lazy val` vs `def`
 
 **`val`** évaluation **immediate** et **une seule fois**
@@ -109,9 +110,15 @@ println(evaluatedAtCreation)
 println(evaluatedAtCreation)
 </code></pre></div>
 
+Notes:
+
+Faire remarque l'utilisation d'un bloc de code `{ ... }`
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Evaluation
+
 ## `val` vs `lazy val` vs `def`
 
 **`lazy val`** évaluation au **premier appel** et **une seule fois**
@@ -128,8 +135,11 @@ println(s"evalute it now ! $lazyEvaluation")
 </code></pre></div>
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Evaluation
+
 ## `val` vs `lazy val` vs `def`
 
 **`def`** évaluation a **l'appel** et **a chaque fois**
@@ -146,13 +156,15 @@ println(s"evaluate it at each call $eachTime")
 </code></pre></div>
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Evaluation
 
 ## _call by name_ vs _call by value_
 
-* **call by value**: paramètre évalué à **l'appel de méthode**
-* **call by name**: paramètre évalué **s'il est utilisé**
+- **call by value**: paramètre évalué à **l'appel de méthode**
+- **call by name**: paramètre évalué **s'il est utilisé**
 
 <div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
 var isDebugEnabled = true
