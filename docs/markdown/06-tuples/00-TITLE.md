@@ -2,14 +2,14 @@
 
 # Les tuples
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 () // tuple vide
 (1) // tuple-1 -> inutile non ?
 (1, true) // tuple-2, une paire
 (1, true, "plop") // tuple-3: un triplet
 // 22 éléments max, pourquoi pas plus ? mais c'est déjà beaucoup
 (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22)
-</code></pre></div>
+```
 
 ##--##
 
@@ -28,13 +28,13 @@
 
 # Les tuples
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 val pair = (1, true) // tuple-2, une paire
 val triplet = (1, true, "plop") // tuple-3: un triplet
 
 println(pair.\_2) // true
 println(triplet.\_3) // "plop"
-</code></pre></div>
+```
 
 Notes:
 

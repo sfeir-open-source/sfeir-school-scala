@@ -13,13 +13,13 @@ throw new Exception("fail !!!")
 
 `try catch` pour _attraper_ une `Exception`
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 try {
   throw new Exception("oups")
 } catch {
   case e => println(e.getMessage)
 }
-</code></pre></div>
+```
 
 ##--##
 
@@ -27,7 +27,7 @@ try {
 
 # Lambda
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 val f = (x: Int) => x + 1
 val g: Int => Int = x => x + 1
 val h: Int => Int = _ + 1
@@ -38,7 +38,7 @@ s"""
 | g(1) = ${g(1)}
 | h(1) = \${h(1)}
 |""".stripMargin)
-</code></pre></div>
+```
 
 Notes:
 
@@ -57,7 +57,7 @@ println(fn(1))
 
 ## Groupe de paramètres
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 case class Person(name: String)
 
 class Repository {
@@ -69,4 +69,4 @@ def inTransaction(repository: Repository)(f: Repository => Unit) = f(repository)
 inTransaction(new Repository) { repo =>
   repo.save(Person("Jane"))
 }
-</code></pre></div>
+```

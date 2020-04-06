@@ -4,11 +4,11 @@
 
 ## mot-clé `def`
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 def increment(x: Int): Int = x + 1
 
 println(increment(2))
-</code></pre></div>
+```
 
 Notes:
 
@@ -22,12 +22,12 @@ Vous pouvez mettre des accolades s'il y a plusieurs lignes
 
 ## Paramètres nommés
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 def writeToConsole(s1: String, s2: String): Unit = println(s"$s1 $s2")
 
 writeToConsole("foo", "bar") // x = 1, y = 2
 writeToConsole(s2 = "foo", s1 = "bar") // x = 2, y = 1
-</code></pre></div>
+```
 
 ##--##
 
@@ -37,7 +37,7 @@ writeToConsole(s2 = "foo", s1 = "bar") // x = 2, y = 1
 
 ## Paramètres optionels
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 def writeToConsole(s1: String = "nope", s2: String = "nope"): Unit = println(s"$s1 $s2")
 
 writeToConsole("FOO", "BAR")
@@ -45,7 +45,7 @@ writeToConsole(s2 = "BAR", s1 = "FOO")
 writeToConsole("FOO")
 writeToConsole(s2 = "FOO")
 writeToConsole()
-</code></pre></div>
+```
 
 ##--##
 
@@ -55,7 +55,7 @@ writeToConsole()
 
 ## Une fonction dans une fonction
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 def greatherThan5(x: Int): Unit = {
   if(x >= 5) {
     println(s"$x est plus grand que 5")
@@ -67,7 +67,7 @@ def greatherThan5(x: Int): Unit = {
 greatherThan5(5)
 greatherThan5(3)
 greatherThan5(7)
-</code></pre></div>
+```
 
 Notes:
 
@@ -83,11 +83,11 @@ Imaginez qu'on a une **condition complexe**, avec des dépendances externes
 
 Une fonction peut avoir plusieurs groupe de paramètres
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 def add(x:Int)(y:Int) = println(s"$x + $y = ${x+y}")
 
 add(1)(2)
-</code></pre></div>
+```
 
 ##--##
 
@@ -99,7 +99,7 @@ add(1)(2)
 
 **`val`** évaluation **immediate** et **une seule fois**
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 val evaluatedAtCreation = {
   println("Evaluated at creation 🔥")
   1
@@ -108,7 +108,7 @@ val evaluatedAtCreation = {
 println("After init")
 println(evaluatedAtCreation)
 println(evaluatedAtCreation)
-</code></pre></div>
+```
 
 Notes:
 
@@ -123,7 +123,7 @@ Faire remarque l'utilisation d'un bloc de code `{ ... }`
 
 **`lazy val`** évaluation au **premier appel** et **une seule fois**
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 lazy val lazyEvaluation = {
   println("lazy 😴")
   2
@@ -132,7 +132,7 @@ lazy val lazyEvaluation = {
 println("not yet evaluated")
 println(s"evalute it now ! $lazyEvaluation")
 println(s"evalute it now ! $lazyEvaluation")
-</code></pre></div>
+```
 
 ##--##
 
@@ -144,7 +144,7 @@ println(s"evalute it now ! $lazyEvaluation")
 
 **`def`** évaluation a **l'appel** et **a chaque fois**
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 def eachTime = {
   println("each time ⏳")
   3
@@ -153,7 +153,7 @@ def eachTime = {
 println("not yet evaluated")
 println(s"evaluate it at each call $eachTime")
 println(s"evaluate it at each call $eachTime")
-</code></pre></div>
+```
 
 ##--##
 
@@ -166,7 +166,7 @@ println(s"evaluate it at each call $eachTime")
 - **call by value**: paramètre évalué à **l'appel de méthode**
 - **call by name**: paramètre évalué **s'il est utilisé**
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 var isDebugEnabled = true
 def logDebug(string: String): Unit = if (isDebugEnabled) println(string)
 
@@ -181,7 +181,7 @@ logDebug({
   println("never evaluated")
   "Nope"
 })
-</code></pre></div>
+```
 
 Notes:
 

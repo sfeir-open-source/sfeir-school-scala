@@ -9,7 +9,7 @@ _Où quand le compilateur il sait mieux que toi ce que tu fais_
   - on dit explicitement au compilateur quel type on veut
   - on documente le code
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 val message = "Hello world"
 
 def inc(x: Int) = x + 1
@@ -19,7 +19,7 @@ s"""
 |$message: ${message.getClass}
 |${inc(1)}: ${inc(1).getClass}
 |""".stripMargin)
-</code></pre></div>
+```
 
 Notes:
 
@@ -38,12 +38,12 @@ Notes:
 
 On peut faire des classes
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 class Animal(name: String) {
 }
 
 println(new Animal("Scoubidou"))
-</code></pre></div>
+```
 
 Notes:
 pas de `getter`, `equals`...
@@ -61,11 +61,11 @@ pas de `getter`, `equals`...
 
 Mais les `case class` c'est beaucoup mieux
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 case class Animal(name: String, species: String)
 
 println(new Animal("Scoubidou", "Chien"))
-</code></pre></div>
+```
 
 Notes:
 
@@ -96,13 +96,13 @@ Mon conseil:
 
 Permet de faire un singleton
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 object SuperDog {
   def say() = println("Super woof")
 }
 
 SuperDog.say()
-</code></pre></div>
+```
 
 Notes:
 
@@ -114,7 +114,7 @@ En terme d'usage, c'est comme un `static` en java tout en étant très OOP: un `
 
 # Les `object`s
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 class Number
 
 object One extends Number
@@ -126,7 +126,7 @@ println(s"$One == $One ? ${One == One}")
 def say(number: Number) = println(s"You say $number")
 
 say(One)
-</code></pre></div>
+```
 
 Notes:
 
@@ -141,7 +141,7 @@ Notes:
 
 Pour des méthodes communes
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 case class Number(i: Int)
 
 object Number {
@@ -149,7 +149,7 @@ object Number {
 }
 
 println(Number.plus(Number(1), Number(2)))
-</code></pre></div>
+```
 
 Notes:
 
@@ -163,7 +163,7 @@ Utile pour faciliter l'import de fonctions annexe a un type (ex: mapper JSON, co
 
 Dans un `object`: pour faciliter la création d'instance
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 case class Animal(name: String, species: String)
 
 object Dog {
@@ -172,7 +172,7 @@ object Dog {
 
 println(Dog.apply("Lassie"))
 println(Dog("Lassie"))
-</code></pre></div>
+```
 
 ##--##
 
@@ -180,7 +180,7 @@ println(Dog("Lassie"))
 
 # La méthode `apply`
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 case class Increment(x: Int) {
   def apply(y: Int): Unit = println(s"$x + $y = ${x+y}")
 }
@@ -188,7 +188,7 @@ case class Increment(x: Int) {
 val incBy1 = Increment(1)
 incBy1.apply(3)
 incBy1(2)
-</code></pre></div>
+```
 
 ##--##
 
@@ -198,11 +198,11 @@ incBy1(2)
 
 On peut _aliaser_ un type avec `type`
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 type Name = String
 type Password = String
 
 def login(name: Name, password: Password) = println(s"\$name successfully log in")
 
 login("John", "pwd123")
-</code></pre></div>
+```

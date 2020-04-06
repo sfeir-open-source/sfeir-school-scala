@@ -8,13 +8,14 @@
 
 # Hello World
 
-<div data-scalafiddle data-layout="h50"> <pre ><code data-trim data-noescape class="scala">
+<!-- <div data-scalafiddle data-layout="h50"> <pre ><code data-trim data-noescape class="scala"> -->
+```scala
 object Main {
   def main(args: Array[String]): Unit = {
     println("Hello World")
   }
 }
-</code></pre></div>
+```
 
 Notes:
 1. Lancer ce programme dans Intellij
@@ -29,14 +30,14 @@ Notes:
 
 ## `val` vs `var`
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 val x = 1
 x = 2; // compilation error
 var y = 2
 y = 3
 
 println(s"x=$x, y=$y")
-</code></pre></div>
+```
 
 Notes:
 
@@ -91,7 +92,7 @@ Quelque chose qui est **évalué** et retourne une **valeur**
 
 En **Scala**:
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 def isTrue(s: String) = true
 
 val text = if(isTrue("true")) {
@@ -101,4 +102,4 @@ val text = if(isTrue("true")) {
 }
 
 println(text)
-</code></pre></div>
+```

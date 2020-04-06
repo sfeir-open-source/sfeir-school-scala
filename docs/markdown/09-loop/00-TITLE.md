@@ -4,11 +4,11 @@
 
 # `for`
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 for(x <- 1 to 10) println(s"$x ") // inclusif
 println("------")
 for(x <- 1 until 10) println(s"$x ") // exclusif
-</code></pre></div>
+```
 
 ##--##
 
@@ -18,13 +18,13 @@ for(x <- 1 until 10) println(s"$x ") // exclusif
 
 ## `while`
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 var x = 0
 while(x < 10) {
   println(s"$x ")
   x = x + 1
 }
-</code></pre></div>
+```
 
 ##--##
 
@@ -34,13 +34,13 @@ while(x < 10) {
 
 ## `do while`
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 var x = 0
 do {
   println(s"$x ")
   x = x + 1
 } while (x < 10)
-</code></pre></div>
+```
 
 ##--##
 
@@ -50,9 +50,9 @@ do {
 
 ## for-each
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 for( x <- List("foo","bar")) println(s"$x ")
-</code></pre></div>
+```
 
 ##--##
 
@@ -60,10 +60,10 @@ for( x <- List("foo","bar")) println(s"$x ")
 
 # `for`-comprehension
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 val xs = for (x <- List("foo", "bar")) yield x.toUpperCase
 println(xs)
-</code></pre></div>
+```
 
 Notes:
 
@@ -77,14 +77,14 @@ Notes:
 
 # `for`-comprehension: filtrer
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 val evens = for {
   x <- 1 to 10
   if x % 2 == 0
 } yield x
 
 println(evens)
-</code></pre></div>
+```
 
 ##--##
 
@@ -92,11 +92,11 @@ println(evens)
 
 # `for`-comprehension: imbriquer
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 val ints = for {
   x <- 1 to 3
   y <- 1 to 3
 } yield (x,y)
 
 println(ints)
-</code></pre></div>
+```
