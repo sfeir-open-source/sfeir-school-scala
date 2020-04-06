@@ -17,9 +17,13 @@ throw new Exception("fail !!!")
 try {
   throw new Exception("oups")
 } catch {
-  case e => println(e.getMessage)
+  case e => e.getMessage
 }
 ```
+
+Notes:
+
+`try` est aussi une **expression**: montrer l'assignation
 
 ##--##
 
@@ -32,12 +36,9 @@ val f = (x: Int) => x + 1
 val g: Int => Int = x => x + 1
 val h: Int => Int = _ + 1
 
-println(
-s"""
-| f(1) = ${f(1)}
-| g(1) = ${g(1)}
-| h(1) = \${h(1)}
-|""".stripMargin)
+f(1)
+g(2)
+h(3)
 ```
 
 Notes:
@@ -45,10 +46,10 @@ Notes:
 montrer ensuite
 
 ```scala
-println(f(g(h(1))))
+f(g(h(1)))
 
 val fn = f.andThen(g).andThen(h)
-println(fn(1))
+fn(1)
 ```
 
 ##--##

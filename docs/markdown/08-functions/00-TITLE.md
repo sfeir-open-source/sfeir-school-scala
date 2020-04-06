@@ -7,18 +7,15 @@
 ```scala
 def >>>(s1: String, s2: String) = s"$s1 >>> $s2"
 
-val s = >>>("foo","bar")
-println(s)
+>>>("foo","bar")
 
 case class Foo(s: String) {
 def +(other: Foo) = Foo(s"$s + ${other.s}")
 }
 
-val foo1 = Foo("foo").+(Foo("bar"))
-println(foo1)
+Foo("foo").+(Foo("bar"))
 
-val foo2 = Foo("foo") + Foo("bar") + Foo("baz")
-println(foo2)
+Foo("foo") + Foo("bar") + Foo("baz")
 ```
 
 Notes:
@@ -39,14 +36,14 @@ Notes:
 
 ```scala
 case class Test(label: String) {
-  def should(assert: Boolean) = println(s"$label is $assert")
+  def should(assert: Boolean) = s"$label is $assert"
 }
 
 Test("1 + 1 == 2") should {
-1 + 1 == 2
+  1 + 1 == 2
 }
 
 Test("1 + 1 == 3") should {
-1 + 1 == 3
+  1 + 1 == 3
 }
 ```

@@ -32,21 +32,20 @@ def head(xs: List[String]) : Option[String] = xs match {
   case Nil => None
 }
 
-println(
-  s"""
-     |1. ${head(List("foo"))}
-     |2. ${head(List(1,2))}
-     |""".stripMargin)
+head(List("foo"))
+head(List(1,2))
 ```
 
 Notes:
 
-Montrer cet exemple ensuite (avec plusieurs **paramètre de type**):
+1. Introduire le type `[A]`
+2. Montrer cet exemple ensuite (avec plusieurs **paramètre de type**):
 
 ```scala
-def keys[K,V](kvs: Map[K,V]): Set[K] = kvs.keySet
+def keys[K, V](kvs: Map[K, V]): Set[K] = kvs.keySet
 
-println(keys(Map(1 -> "a", 2 -> "b")))
+keys(Map(1 -> "a", 2 -> "b"))
+keys(Map("a" -> 1, "b" -> 2))
 ```
 
 ##--##

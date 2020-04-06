@@ -8,7 +8,7 @@ Les `List` sont représentées par 2 états:
 * avec une valeur => `::`
 
 ```scala
-println(1 :: 2 :: 3 :: Nil)
+1 :: 2 :: 3 :: Nil
 ```
 
 ##--##
@@ -18,8 +18,8 @@ println(1 :: 2 :: 3 :: Nil)
 ```scala
 // On utilise l'objet compagnon de List pour créer une liste
 val strings = List("foo", "bar", "baz")
-println(strings)
-println(strings(1))
+strings
+strings(1)
 ```
 
 Notes:

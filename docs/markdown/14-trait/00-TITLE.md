@@ -12,7 +12,7 @@ trait Votant {
 
 case class Person(name: String, age: Int) extends Votant
 
-println(Person("John", 19).canVote)
+Person("John", 19).canVote
 ```
 
 ##--##
@@ -42,7 +42,7 @@ trait Robot extends Animal {
 
 case class CyberDog() extends Dog with Robot
 
-println(CyberDog().say)
+CyberDog().say
 ```
 
 Notes:
@@ -60,7 +60,7 @@ Un **type** peut implémenter plusieurs `trait`
 
 ```scala
 trait Repository[A] {
-  def save(a: A): Unit
+  def save(a: A): A
 }
 
 trait Connexion {
@@ -72,7 +72,7 @@ case class Person(name: String)
 class PersonRepository extends Repository[Person] with Connexion {
   def save(person: Person) = {
     println(s"Connect with [$cnxString]")
-    println(s"save $person")
+    person.copy(s"${person.name} saved")
   }
 }
 
@@ -105,8 +105,8 @@ def switch(feu: Feu): Feu = feu match {
   case Vert  => Rouge
 }
 
-println(switch(Rouge))
-println(switch(Vert))
+switch(Rouge)
+switch(Vert)
 ```
 
 Notes:
@@ -153,5 +153,5 @@ def head[A](xs: List[A]): Maybe[A] = xs match {
   case Nil => Empty
 }
 
-println(head(List("foo","bar")))
+head(List("foo","bar"))
 ```

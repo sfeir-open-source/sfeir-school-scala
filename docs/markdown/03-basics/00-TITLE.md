@@ -36,7 +36,7 @@ x = 2; // compilation error
 var y = 2
 y = 3
 
-println(s"x=$x, y=$y")
+s"x=$x, y=$y"
 ```
 
 Notes:
@@ -93,13 +93,11 @@ Quelque chose qui est **évalué** et retourne une **valeur**
 En **Scala**:
 
 ```scala
-def isTrue(s: String) = true
-
-val text = if(isTrue("true")) {
-"it's true"
+val text = if(true) {
+  "it's true"
 } else {
-"it's false"
+  "it's false"
 }
 
-println(text)
+text
 ```

@@ -7,7 +7,7 @@
 ```scala
 def increment(x: Int): Int = x + 1
 
-println(increment(2))
+increment(2)
 ```
 
 Notes:
@@ -23,10 +23,10 @@ Vous pouvez mettre des accolades s'il y a plusieurs lignes
 ## Paramètres nommés
 
 ```scala
-def writeToConsole(s1: String, s2: String): Unit = println(s"$s1 $s2")
+def namedParameters(s1: String, s2: String): String = s"$s1 $s2"
 
-writeToConsole("foo", "bar") // x = 1, y = 2
-writeToConsole(s2 = "foo", s1 = "bar") // x = 2, y = 1
+namedParameters("foo", "bar") 
+namedParameters(s2 = "foo", s1 = "bar") 
 ```
 
 ##--##
@@ -38,13 +38,13 @@ writeToConsole(s2 = "foo", s1 = "bar") // x = 2, y = 1
 ## Paramètres optionels
 
 ```scala
-def writeToConsole(s1: String = "nope", s2: String = "nope"): Unit = println(s"$s1 $s2")
+def maybeParams(s1: String = "nope", s2: String = "nope"): String = s"$s1 $s2"
 
-writeToConsole("FOO", "BAR")
-writeToConsole(s2 = "BAR", s1 = "FOO")
-writeToConsole("FOO")
-writeToConsole(s2 = "FOO")
-writeToConsole()
+maybeParams("FOO", "BAR")
+maybeParams(s2 = "BAR", s1 = "FOO")
+maybeParams("FOO")
+maybeParams(s2 = "FOO")
+maybeParams()
 ```
 
 ##--##
@@ -84,7 +84,7 @@ Imaginez qu'on a une **condition complexe**, avec des dépendances externes
 Une fonction peut avoir plusieurs groupe de paramètres
 
 ```scala
-def add(x:Int)(y:Int) = println(s"$x + $y = ${x+y}")
+def add(x:Int)(y:Int) = s"$x + $y = ${x+y}"
 
 add(1)(2)
 ```

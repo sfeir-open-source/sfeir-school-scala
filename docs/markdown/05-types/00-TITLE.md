@@ -15,10 +15,10 @@ val message = "Hello world"
 def inc(x: Int) = x + 1
 
 println(
-s"""
-|$message: ${message.getClass}
-|${inc(1)}: ${inc(1).getClass}
-|""".stripMargin)
+  s"""
+     |$message: ${message.getClass}
+     |${inc(1)}: ${inc(1).getClass}
+     |""".stripMargin)
 ```
 
 Notes:
@@ -42,7 +42,7 @@ On peut faire des classes
 class Animal(name: String) {
 }
 
-println(new Animal("Scoubidou"))
+new Animal("Scoubidou")
 ```
 
 Notes:
@@ -64,7 +64,7 @@ Mais les `case class` c'est beaucoup mieux
 ```scala
 case class Animal(name: String, species: String)
 
-println(new Animal("Scoubidou", "Chien"))
+new Animal("Scoubidou", "Chien")
 ```
 
 Notes:
@@ -98,7 +98,7 @@ Permet de faire un singleton
 
 ```scala
 object SuperDog {
-  def say() = println("Super woof")
+  def say() = "Super woof"
 }
 
 SuperDog.say()
@@ -120,10 +120,10 @@ class Number
 object One extends Number
 object Two extends Number
 
-println(s"$One == $Two ? ${One == Two}")
-println(s"$One == $One ? ${One == One}")
+One == Two
+One == One
 
-def say(number: Number) = println(s"You say $number")
+def say(number: Number) = s"You say $number"
 
 say(One)
 ```
@@ -148,7 +148,7 @@ object Number {
   def plus(x: Number, y:Number) = Number(x.i + y.i)
 }
 
-println(Number.plus(Number(1), Number(2)))
+Number.plus(Number(1), Number(2))
 ```
 
 Notes:
@@ -170,8 +170,8 @@ object Dog {
     def apply(name: String) = Animal(name, "Dog")
 }
 
-println(Dog.apply("Lassie"))
-println(Dog("Lassie"))
+Dog.apply("Lassie")
+Dog("Lassie")
 ```
 
 ##--##
@@ -182,7 +182,7 @@ println(Dog("Lassie"))
 
 ```scala
 case class Increment(x: Int) {
-  def apply(y: Int): Unit = println(s"$x + $y = ${x+y}")
+  def apply(y: Int): Unit = s"$x + $y = ${x+y}"
 }
 
 val incBy1 = Increment(1)
@@ -202,7 +202,7 @@ On peut _aliaser_ un type avec `type`
 type Name = String
 type Password = String
 
-def login(name: Name, password: Password) = println(s"\$name successfully log in")
+def login(name: Name, password: Password) = s"\$name successfully log in"
 
 login("John", "pwd123")
 ```
