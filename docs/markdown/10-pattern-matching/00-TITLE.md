@@ -14,8 +14,8 @@
 
 ```scala
 "yes" match {
-  case "yes" => println("Oui")
-  case "no"  => println("Non")
+  case "yes" => "Oui"
+  case "no"  => "Non"
 }
 ```
 
@@ -32,8 +32,8 @@ def head(xs: List[String]): String =
     case xs      => "empty list"
   }
 
-println(head(List("a","b","c")))
-println(head(List()))
+head(List("a","b","c"))
+head(List())
 ```
 
 ##--##
@@ -50,7 +50,7 @@ def print(hero: Hero) = hero match {
   case Hero(Name(name), power) => s"$name has power $power"
 }
 
-println(print(Hero(Name("foo"), 100)))
+print(Hero(Name("foo"), 100))
 ```
 
 ##--##
@@ -67,7 +67,7 @@ def print(hero: Hero) = {
   s"$name has power $power"
 }
 
-println(print(Hero("foo", 100)))
+print(Hero("foo", 100))
 ```
 
 Notes: 
@@ -92,9 +92,9 @@ def firstTwo(xs: List[String]): String =
     case xs           => "empty list"
   }
 
-println(firstTwo(List("a","b","c")))
-println(firstTwo(List("foo")))
-println(firstTwo(List()))
+firstTwo(List("a","b","c"))
+firstTwo(List("foo"))
+firstTwo(List())
 ```
 
 ##--##
@@ -109,11 +109,8 @@ def isVoyel(c: Char) = c match {
   case _ => false
 }
 
-println(
-  s"""
-     |a: ${isVoyel('a')}
-     |b: ${isVoyel('b')}
-     |""".stripMargin)
+isVoyel('a')
+isVoyel('b')
 ```
 
 ##--##
@@ -132,11 +129,8 @@ def isVoyel(c: Char) = {
   }
 }
 
-println(
-  s"""
-     |a: ${isVoyel('a')}
-     |b: ${isVoyel('b')}
-     |""".stripMargin)
+isVoyel('a')
+isVoyel('b')
 ```
 
 Notes:
@@ -162,13 +156,11 @@ Faire un programme de **FizzBuzz**
 Notes:
 
 ```scala
-val result = for(x <- 1 to 100) yield
+for(x <- 1 to 100) yield
   (x % 3, x % 5) match {
     case (0,0) => "FizzBuzz"
     case (0, _) => "Fizz"
     case (_, 0) => "Buzz"
     case _ => x.toString
   }
-
-println(result)
 ```

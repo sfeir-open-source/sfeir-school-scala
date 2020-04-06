@@ -61,14 +61,13 @@ for( x <- List("foo","bar")) println(s"$x ")
 # `for`-comprehension
 
 ```scala
-val xs = for (x <- List("foo", "bar")) yield x.toUpperCase
-println(xs)
+for (x <- List("foo", "bar")) yield x.toUpperCase
 ```
 
 Notes:
 
 - les boucles précédentes exécutent un traitement et **ne retournent rien**
-- une **for-comprehension** fait un traitement **et retournent une valeur**
+- une **for-comprehension** fait un traitement **et retournent une valeur** (c'est une **expression**)
 - faire un exemple avec un `if` et une sous-boucle
 
 ##--##
@@ -78,12 +77,10 @@ Notes:
 # `for`-comprehension: filtrer
 
 ```scala
-val evens = for {
+for {
   x <- 1 to 10
   if x % 2 == 0
 } yield x
-
-println(evens)
 ```
 
 ##--##
@@ -93,10 +90,8 @@ println(evens)
 # `for`-comprehension: imbriquer
 
 ```scala
-val ints = for {
+for {
   x <- 1 to 3
   y <- 1 to 3
 } yield (x,y)
-
-println(ints)
 ```

@@ -32,8 +32,8 @@
 val pair = (1, true) // tuple-2, une paire
 val triplet = (1, true, "plop") // tuple-3: un triplet
 
-println(pair.\_2) // true
-println(triplet.\_3) // "plop"
+pair.\_2
+triplet.\_3
 ```
 
 Notes:
@@ -68,6 +68,6 @@ def done = Todo(desc, DONE)
 }
 
 val todo = Todo("Faire l'exercice")
-println(todo)
-println(todo.done)
+todo
+todo.done
 ```

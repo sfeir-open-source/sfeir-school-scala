@@ -5,9 +5,7 @@
 ## Se passer des boucles
 
 ```scala
-val xs = List("foo","bar","baz").map(s => s.toUpperCase)
-
-println(xs)
+List("foo","bar","baz").map(s => s.toUpperCase)
 ```
 
 Notes:
@@ -54,7 +52,7 @@ List("scala","java","haskell","go","javascript").filter(_.length > 4)
 # Les `Map`s
 
 ```scala
-println(Map(("foo", 1), ("bar", 2)))
+Map(("foo", 1), ("bar", 2))
 ```
 
 Notes:
@@ -71,7 +69,6 @@ map.map {
 map.filter{
   case (k, _) => k.startsWith("f")
 }.foreach(println)
-println(map)
 ```
 
 ##--##
@@ -95,11 +92,8 @@ Notes:
 val some: Option[Int]  = Some(1)
 val none: Option[Int] = None
 
-println(
-  s"""
-     |some = $some
-     |none = $none
-     |""".stripMargin)
+some
+none
 ```
 
 ##--##
@@ -112,11 +106,8 @@ def head(xs: List[String]) = xs match {
   case Nil => ""
 }
 
-println(
-  s"""
-     |1. ${head(List("foo"))}
-     |2. ${head(List())}
-     |""".stripMargin)
+head(List("foo"))
+head(List())
 ```
 
 Notes:
