@@ -4,11 +4,11 @@
 
 ## Se passer des boucles
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 val xs = List("foo","bar","baz").map(s => s.toUpperCase)
 
 println(xs)
-</code></pre></div>
+```
 
 Notes:
 
@@ -23,12 +23,12 @@ Notes:
 
 ## Se passer des boucles
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 def upper(s:String) = s.toUpperCase
 
 List("foo","bar","baz").map(s => upper(s))
 .foreach(println)
-</code></pre></div>
+```
 
 Notes:
 
@@ -42,10 +42,10 @@ Utiliser `upper` a la place de `s => upper(s)`
 
 ## Filtrer aussi
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 List("scala","java","haskell","go","javascript").filter(_.length > 4)
   .foreach(println)
-</code></pre></div>
+```
 
 ##--##
 
@@ -53,9 +53,9 @@ List("scala","java","haskell","go","javascript").filter(_.length > 4)
 
 # Les `Map`s
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 println(Map(("foo", 1), ("bar", 2)))
-</code></pre></div>
+```
 
 Notes:
 
@@ -91,7 +91,7 @@ Notes:
 ##--##
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 # `Option`
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 val some: Option[Int]  = Some(1)
 val none: Option[Int] = None
 
@@ -100,13 +100,13 @@ println(
      |some = $some
      |none = $none
      |""".stripMargin)
-</code></pre></div>
+```
 
 ##--##
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 # `Option` 
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 def head(xs: List[String]) = xs match {
   case x :: _ => x
   case Nil => ""
@@ -117,7 +117,7 @@ println(
      |1. ${head(List("foo"))}
      |2. ${head(List())}
      |""".stripMargin)
-</code></pre></div>
+```
 
 Notes:
 

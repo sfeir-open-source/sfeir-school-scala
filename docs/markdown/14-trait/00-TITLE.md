@@ -3,7 +3,7 @@
 
 Comme une `interface` en Java mais avec la possibilité d'implémenter des méthodes
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 trait Votant {
   def age: Int
   
@@ -13,7 +13,7 @@ trait Votant {
 case class Person(name: String, age: Int) extends Votant
 
 println(Person("John", 19).canVote)
-</code></pre></div>
+```
 
 ##--##
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
@@ -27,7 +27,7 @@ println(Person("John", 19).canVote)
 
 Prendre le `trait` le plus a droite
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 trait Animal {
   def say: String
 }
@@ -43,7 +43,7 @@ trait Robot extends Animal {
 case class CyberDog() extends Dog with Robot
 
 println(CyberDog().say)
-</code></pre></div>
+```
 
 Notes:
 
@@ -58,7 +58,7 @@ Ajouter:
 
 Un **type** peut implémenter plusieurs `trait`
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 trait Repository[A] {
   def save(a: A): Unit
 }
@@ -77,7 +77,7 @@ class PersonRepository extends Repository[Person] with Connexion {
 }
 
 new PersonRepository().save(Person("John"))
-</code></pre></div>
+```
 
 ##--##
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
@@ -95,7 +95,7 @@ Dans l'exemple précédent il ne serai pas facile de remplacer la **chaine de co
 
 Avec un `trait` on peut facilement représenter une _famille_ de type:
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 trait Feu
 case object Rouge extends Feu
 case object Vert extends Feu
@@ -107,7 +107,7 @@ def switch(feu: Feu): Feu = feu match {
 
 println(switch(Rouge))
 println(switch(Vert))
-</code></pre></div>
+```
 
 Notes:
 

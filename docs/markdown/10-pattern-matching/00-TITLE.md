@@ -12,12 +12,12 @@
 
 # Pattern matching: comme un `switch`
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 "yes" match {
   case "yes" => println("Oui")
   case "no"  => println("Non")
 }
-</code></pre></div>
+```
 
 ##--##
 
@@ -25,7 +25,7 @@
 
 # Pattern matching: voir le motif (1)
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 def head(xs: List[String]): String =
   xs match {
     case x :: xs => s"Head = $x"
@@ -34,7 +34,7 @@ def head(xs: List[String]): String =
 
 println(head(List("a","b","c")))
 println(head(List()))
-</code></pre></div>
+```
 
 ##--##
 
@@ -42,7 +42,7 @@ println(head(List()))
 
 # Pattern matching: voir le motif (2)
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 case class Name(name: String)
 case class Hero(name: Name, power: Int)
 
@@ -51,7 +51,7 @@ def print(hero: Hero) = hero match {
 }
 
 println(print(Hero(Name("foo"), 100)))
-</code></pre></div>
+```
 
 ##--##
 
@@ -59,7 +59,7 @@ println(print(Hero(Name("foo"), 100)))
 
 # Pattern matching: voir le motif (3)
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 case class Hero(name: String, power: Int)
 
 def print(hero: Hero) = {
@@ -68,7 +68,7 @@ def print(hero: Hero) = {
 }
 
 println(print(Hero("foo", 100)))
-</code></pre></div>
+```
 
 Notes: 
 
@@ -84,7 +84,7 @@ val head :: _ = List(1,2,3) // listes
 
 # Pattern matching: l'ordre compte
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 def firstTwo(xs: List[String]): String =
   xs match {
     case x :: y :: xs => s"First two: $x, $y"
@@ -95,7 +95,7 @@ def firstTwo(xs: List[String]): String =
 println(firstTwo(List("a","b","c")))
 println(firstTwo(List("foo")))
 println(firstTwo(List()))
-</code></pre></div>
+```
 
 ##--##
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
@@ -103,7 +103,7 @@ println(firstTwo(List()))
 
 On peut faire un `case` pour plusieurs valeurs
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 def isVoyel(c: Char) = c match {
   case 'a' | 'e' | 'i' | 'o' | 'u' => true
   case _ => false
@@ -114,7 +114,7 @@ println(
      |a: ${isVoyel('a')}
      |b: ${isVoyel('b')}
      |""".stripMargin)
-</code></pre></div>
+```
 
 ##--##
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
@@ -122,7 +122,7 @@ println(
 
 On peut aussi utiliser `if` dans `case`
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 def isVoyel(c: Char) = {
   def isIn(x: Char) = List('a','e','i','o','u').contains(x) // on pourrait réduire la fonction  a cette ligne 😁
   
@@ -137,7 +137,7 @@ println(
      |a: ${isVoyel('a')}
      |b: ${isVoyel('b')}
      |""".stripMargin)
-</code></pre></div>
+```
 
 Notes:
 

@@ -4,7 +4,7 @@
 
 ## Avec des symboles
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 def >>>(s1: String, s2: String) = s"$s1 >>> $s2"
 
 val s = >>>("foo","bar")
@@ -19,7 +19,7 @@ println(foo1)
 
 val foo2 = Foo("foo") + Foo("bar") + Foo("baz")
 println(foo2)
-</code></pre></div>
+```
 
 Notes:
 
@@ -37,7 +37,7 @@ Notes:
 
 # Comme opérateur
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 case class Test(label: String) {
   def should(assert: Boolean) = println(s"$label is $assert")
 }
@@ -49,4 +49,4 @@ Test("1 + 1 == 2") should {
 Test("1 + 1 == 3") should {
 1 + 1 == 3
 }
-</code></pre></div>
+```

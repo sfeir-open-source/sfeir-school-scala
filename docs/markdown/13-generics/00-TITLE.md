@@ -16,9 +16,9 @@ ou *type paramétré*
 * `String` dans `List[String]` est un **paramètre de type**
 * `List[String]` est un type concret, au même titre que `Int`
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 val xs: List = List()
-</code></pre></div>
+```
 
 ##--##
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
@@ -26,7 +26,7 @@ val xs: List = List()
 
 On peut créer des valeurs/fonctions abstraites sur le **paramètre de type**
 
-<div data-scalafiddle data-layout="h50"><pre><code data-trim data-noescape class="scala">
+```scala
 def head(xs: List[String]) : Option[String] = xs match {
   case x :: _ => Some(x)
   case Nil => None
@@ -37,7 +37,7 @@ println(
      |1. ${head(List("foo"))}
      |2. ${head(List(1,2))}
      |""".stripMargin)
-</code></pre></div>
+```
 
 Notes:
 
