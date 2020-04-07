@@ -8,7 +8,6 @@
 
 # Hello World
 
-<!-- <div data-scalafiddle data-layout="h50"> <pre ><code data-trim data-noescape class="scala"> -->
 ```scala
 object Main {
   def main(args: Array[String]): Unit = {
