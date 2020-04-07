@@ -1023,6 +1023,29 @@ inTransaction(new Repository) { repo =>
 }
 ```
 
+##--##
+
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
+# Les Fonctions
+
+## Groupe de paramètres
+
+Que se passe-t-il si on ne donne pas tous les paramètres ?
+
+```scala
+def add(x:Int)(y:Int): Int = x + y
+
+add(1)(2)
+add(1)
+```
+
+Notes:
+
+1. Montrer que ça ne compile pas
+2. Ajouter le `_` a `add(1)` => c'est une fonction (currying)
+3. Assigner a une `val inc = add(1) _` et l'utiliser `inc(1)`
+
 ##==##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
