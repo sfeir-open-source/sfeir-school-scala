@@ -1068,7 +1068,7 @@ add(1)
 Notes:
 
 1. Montrer que ça ne compile pas
-2. Ajouter le `_` a `add(1)` => c'est une fonction (currying)
+2. Ajouter le `_` a `add(1)` => c'est une fonction (currying sans rentrer dans les détails)
 3. Assigner a une `val inc = add(1) _` et l'utiliser `inc(1)`
 
 ##==##
