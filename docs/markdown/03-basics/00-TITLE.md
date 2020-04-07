@@ -64,6 +64,27 @@ Notes:
 Comme en Java
 
 ##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# String interpolation
+
+Formattage de chaines de caractères
+
+```scala
+val name = "Emmanuel"
+
+s"Hello $name"
+s"Hello ${name.toUpperCase()}"
+s"""
+   |*******************
+   |Hello $name
+   |*******************
+   """.stripMargin
+```
+
+Notes:
+
+Ne prêtez pas attention au `// 0` dans le worksheet, c'est le worksheet qui les ajoute automatiquement
+##--##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
