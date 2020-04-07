@@ -49,8 +49,10 @@ Notes:
 
 Ajouter:
 
-* `case class DogBot() extends Robot with Dog`
-* `println(DogBot().say)`
+```scala
+case class DogBot() extends Robot with Dog
+println(DogBot().say)
+```
 
 ##--##
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
