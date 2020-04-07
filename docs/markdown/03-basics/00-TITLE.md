@@ -1042,6 +1042,46 @@ h(3)
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
+# Lambda
+
+## Plusieurs paramètres
+
+grouper les paramètres
+
+```scala
+val add: (Int, Int) => Int = (x, y) => x + y
+
+add(1, 2)
+```
+
+##--##
+
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
+# Lambda
+
+## Plusieurs paramètres
+
+fonction qui retourne une fonction (_currying_)
+
+```scala
+val add: Int => Int => Int = x => y => x + y
+
+add(1)(2)
+```
+
+Notes:
+
+1. Enlever le second paramètre
+2. montrer qu'on obtient une fonction `val increment = add(1)`
+3. L'utiliser `increment(2)`
+
+Notion d'**application partielle**
+
+##--##
+
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Composition de fonction
 
 Une fonction `+` une fonction `=` une fonction.
@@ -1095,29 +1135,6 @@ inTransaction(new Repository) { repo =>
   repo.save(Person("Jane"))
 }
 ```
-
-##--##
-
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
-
-# Les Fonctions
-
-## Groupe de paramètres
-
-Que se passe-t-il si on ne donne pas tous les paramètres ?
-
-```scala
-def add(x:Int)(y:Int): Int = x + y
-
-add(1)(2)
-add(1)
-```
-
-Notes:
-
-1. Montrer que ça ne compile pas
-2. Ajouter le `_` a `add(1)` => c'est une fonction (currying sans rentrer dans les détails)
-3. Assigner a une `val inc = add(1) _` et l'utiliser `inc(1)`
 
 ##==##
 
