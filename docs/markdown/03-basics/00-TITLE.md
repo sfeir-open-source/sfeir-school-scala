@@ -64,7 +64,9 @@ Notes:
 Comme en Java
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # String interpolation
 
 Formattage de chaines de caractères
@@ -1036,15 +1038,40 @@ g(2)
 h(3)
 ```
 
-Notes:
+##--##
 
-montrer ensuite
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
+# Composition de fonction
+
+Une fonction `+` une fonction `=` une fonction.
+
+Le résultat est passé comme argument a la fonction suivante
+
+Au choix:
+
+- `andThen`: préféré en Scala, on compose dans l'ordre de lecture
+- `compose`: on compose dans le même ordre que si on appliquait les fonctions
+
+##--##
+
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
+# Composition de fonction
 
 ```scala
-f(g(h(1)))
+def one(s: String) = {
+  s"$s > one"
+}
 
-val fn = f.andThen(g).andThen(h)
-fn(1)
+def second(s: String) = {
+  s"$s > second"
+}
+
+(one _).andThen(second)("andThen")
+second(one("andThen2"))
+(one _).compose(second)("compose")
+one(second("application"))
 ```
 
 ##--##
