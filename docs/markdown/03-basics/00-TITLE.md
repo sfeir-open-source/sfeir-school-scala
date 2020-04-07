@@ -17,12 +17,14 @@ object Main {
 ```
 
 Notes:
+
 1. Lancer ce programme dans Intellij
 2. Utiliser un argument `args(0)`
 3. Utiliser le trait `App` (plus besoin du `main`)
 4. utiliser des _string interpolation_: `s"Hello ${args(0)}`
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
 # Les variables
@@ -50,10 +52,10 @@ Notes:
 # Les conditions
 
 ```scala
-if(<condition>) {
-    // ...
+if(true) {
+  println("true")
 } else {
-    // ...
+  println("true")
 }
 ```
 
@@ -100,6 +102,7 @@ val text = if(true) {
 
 text
 ```
+
 ##==##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
@@ -129,8 +132,8 @@ Vous pouvez mettre des accolades s'il y a plusieurs lignes
 ```scala
 def namedParameters(s1: String, s2: String): String = s"$s1 $s2"
 
-namedParameters("foo", "bar") 
-namedParameters(s2 = "foo", s1 = "bar") 
+namedParameters("foo", "bar")
+namedParameters(s2 = "foo", s1 = "bar")
 ```
 
 ##--##
@@ -426,7 +429,7 @@ say(One)
 Notes:
 
 1. Ajouter `case` a `One` pour montrer qu'on a le `toString`
-##--##
+   ##--##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
@@ -550,7 +553,9 @@ Notes:
 ```
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-pink exercice" -->
+
 ## Exercice
 
 Faire un programme de **Todo**
@@ -577,6 +582,7 @@ val todo = Todo("Faire l'exercice")
 todo
 todo.done
 ```
+
 ##==##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
@@ -585,15 +591,17 @@ todo.done
 
 Les `List` sont représentées par 2 états:
 
-* vide            => `Nil`
-* avec une valeur => `::`
+- vide => `Nil`
+- avec une valeur => `::`
 
 ```scala
 1 :: 2 :: 3 :: Nil
 ```
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # `List`
 
 ```scala
@@ -608,7 +616,7 @@ Notes:
 - c'est là que l'objet compagnon est utile `List.apply`
 - différent d'un tuple: ensemble homogène de valeur, itérable
 - `::` n'est pas un opérateur de Scala ! C'est une fonction
-##==##
+  ##==##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
@@ -659,6 +667,7 @@ Test("1 + 1 == 3") should {
   1 + 1 == 3
 }
 ```
+
 ##==##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
@@ -758,6 +767,7 @@ for {
   y <- 1 to 3
 } yield (x,y)
 ```
+
 ##==##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
@@ -768,7 +778,7 @@ for {
 2. extraire des données
 3. en faire quelque-chose
 
-  ##--##
+##--##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
@@ -832,9 +842,10 @@ def print(hero: Hero) = {
 print(Hero("foo", 100))
 ```
 
-Notes: 
+Notes:
 
-ça marche aussi pour des 
+ça marche aussi pour des
+
 ```scala
 val (x,y) = (1,2) // tuples
 val head :: _ = List(1,2,3) // listes
@@ -860,7 +871,9 @@ firstTwo(List())
 ```
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Pattern matching: plusieurs possibilités
 
 On peut faire un `case` pour plusieurs valeurs
@@ -876,7 +889,9 @@ isVoyel('b')
 ```
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Pattern matching: plusieurs possibilités
 
 On peut aussi utiliser `if` dans `case`
@@ -884,7 +899,7 @@ On peut aussi utiliser `if` dans `case`
 ```scala
 def isVoyel(c: Char) = {
   def isIn(x: Char) = List('a','e','i','o','u').contains(x) // on pourrait réduire la fonction  a cette ligne 😁
-  
+
   c match {
     case char if isIn(char) => true
     case _ => false
@@ -897,7 +912,7 @@ isVoyel('b')
 
 Notes:
 
-On est d'accord que cette implémentation est *foireuse*, le `List().contains` est plus lisible !
+On est d'accord que cette implémentation est _foireuse_, le `List().contains` est plus lisible !
 C'est un exemple 😁
 ##--##
 
@@ -926,9 +941,11 @@ for(x <- 1 to 100) yield
     case _ => x.toString
   }
 ```
+
 ##==##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Exception
 
 Comme en Java, `throw` pour lever une `Exception`
@@ -938,7 +955,9 @@ throw new Exception("fail !!!")
 ```
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Exception
 
 `try catch` pour _attraper_ une `Exception`
@@ -983,7 +1002,9 @@ fn(1)
 ```
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Les Fonctions
 
 ## Groupe de paramètres
@@ -1001,6 +1022,7 @@ inTransaction(new Repository) { repo =>
   repo.save(Person("Jane"))
 }
 ```
+
 ##==##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
@@ -1077,22 +1099,27 @@ map.filter{
 ```
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # `Option`: Comment eviter `null` ?
 
 La classe `Option` permet de représenter la présence ou l'absence de valeur:
 
-* `Some(...)` => j'ai un élément
-* `None` => pas de valeur
+- `Some(...)` => j'ai un élément
+- `None` => pas de valeur
 
 Notes:
 
-* Comme une liste ne pouvant contenir que 0 ou 1 élément
-* l'interêt est d'être explicite sur la présence ou non d'une fonction
+- Comme une liste ne pouvant contenir que 0 ou 1 élément
+- l'interêt est d'être explicite sur la présence ou non d'une fonction
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # `Option`
+
 ```scala
 val some: Option[Int]  = Some(1)
 val none: Option[Int] = None
@@ -1102,8 +1129,10 @@ none
 ```
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
-# `Option` 
+
+# `Option`
 
 ```scala
 def head(xs: List[String]) = xs match {
@@ -1122,36 +1151,43 @@ Notes:
 3. montrer qu'on peut utiliser `map`
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-pink exercice" -->
+
 ## Exercice
 
 ✅Exo sur l'API collection, enchainer des `map`, `filter`...
 ##==##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Génériques
 
-ou *type paramétré*
+ou _type paramétré_
 
-* `List[String]`
-* `Map[Int, String]`
-* `Option[Hero]`
-* ...
+- `List[String]`
+- `Map[Int, String]`
+- `Option[Hero]`
+- ...
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Type parametré
 
-* `List` est un **constructeur de type**
-* `String` dans `List[String]` est un **paramètre de type**
-* `List[String]` est un type concret, au même titre que `Int`
+- `List` est un **constructeur de type**
+- `String` dans `List[String]` est un **paramètre de type**
+- `List[String]` est un type concret, au même titre que `Int`
 
 ```scala
 val xs: List = List()
 ```
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Type parametré
 
 On peut créer des valeurs/fonctions abstraites sur le **paramètre de type**
@@ -1179,7 +1215,9 @@ keys(Map("a" -> 1, "b" -> 2))
 ```
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-pink exercice" -->
+
 ## Exercice
 
 Exercice implémenter `map` pour n'importe quelle `List`
@@ -1199,7 +1237,7 @@ Solution
 ```scala
 def map[A,B](xs: List[A], f: A => B): List[B] =xs match {
   case x :: tail => f(x) :: map(tail, f)
-  case Nil => Nil 
+  case Nil => Nil
 }
 
 map[Int,Int](List(1,2), _ + 1)
@@ -1208,9 +1246,11 @@ map[Int,Int](List(1,2), _ + 1)
 
 map(List(1,2), (_: Int) + 1)
 ```
+
 ##==##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Les `trait`s
 
 Comme une `interface` en Java mais avec la possibilité d'implémenter des méthodes
@@ -1218,7 +1258,7 @@ Comme une `interface` en Java mais avec la possibilité d'implémenter des méth
 ```scala
 trait Votant {
   def age: Int
-  
+
   val canVote:Boolean = age > 18
 }
 
@@ -1228,13 +1268,17 @@ Person("John", 19).canVote
 ```
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Les `trait`s: Héritage en diamant
 
 ![Héritage en diamant](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Diamond_inheritance.svg/440px-Diamond_inheritance.svg.png)
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Les `trait`s: Héritage en diamant
 
 Prendre le `trait` le plus a droite
@@ -1267,7 +1311,9 @@ println(DogBot().say)
 ```
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Les `trait`s: Mixins
 
 Un **type** peut implémenter plusieurs `trait`
@@ -1294,17 +1340,21 @@ new PersonRepository().save(Person("John"))
 ```
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Les `trait`s: Mixins
 
-⚠️Utiliser les **mixins** pour du comportement (fonction) plutôt que de la donnée 
+⚠️Utiliser les **mixins** pour du comportement (fonction) plutôt que de la donnée
 
 Notes:
 
 Dans l'exemple précédent il ne serai pas facile de remplacer la **chaine de connexion** dans `Connexion`
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Les `trait`s scellés
 
 Avec un `trait` on peut facilement représenter une _famille_ de type:
@@ -1328,26 +1378,30 @@ Notes:
 1. Ajouter le `case object Orange`: montrer l'échec du _pattern matching_
 2. Ajouter `sealed` sur le `trait`: montrer le warning sur le _pattern matching_
 3. Passer sur intellij avec:
-   * `scalacOptions += "-Xfatal-warnings"` dans `build.sbt`
-   * ⚠️dans un fichier **scala** pas un **worksheet**⚠️
+   - `scalacOptions += "-Xfatal-warnings"` dans `build.sbt`
+   - ⚠️dans un fichier **scala** pas un **worksheet**⚠️
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Les `trait`s scellés
 
-* `sealed` empêche d'étendre le `trait` en dehors de son fichier de déclaration
-* le `trait` scellé et ces sous-types forment un **A**lgebraic **D**ata **T**ype: **ADT**
+- `sealed` empêche d'étendre le `trait` en dehors de son fichier de déclaration
+- le `trait` scellé et ces sous-types forment un **A**lgebraic **D**ata **T**ype: **ADT**
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-pink exercice" -->
+
 ## Exercice
 
 Faire un **ADT** pour **`Maybe`**
 
 **`Maybe`** fonctionne comme une **`Option`**, avec
 
-* **`Some`** => **`Just`**
-* **`None`** => **`Empty`**
+- **`Some`** => **`Just`**
+- **`None`** => **`Empty`**
 
 💡**`Nothing`** est un type spéciale de Scala, qui étend **tous** les types
 
@@ -1369,6 +1423,3 @@ def head[A](xs: List[A]): Maybe[A] = xs match {
 
 head(List("foo","bar"))
 ```
-
-##==##
-
