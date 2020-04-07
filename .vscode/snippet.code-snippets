@@ -2,9 +2,9 @@
 		"scope": "markdown,md",
 		"prefix": "code",
 		"body": [
-			"<div data-scalafiddle data-layout=\"h50\"><pre><code data-trim data-noescape class=\"scala\">",
+			"```scala",
 			"$0",
-			"</code></pre></div>"
+			"```"
 		]
 	},
 	"new default slide": {
