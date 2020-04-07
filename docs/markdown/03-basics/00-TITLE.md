@@ -69,7 +69,16 @@ Comme en Java
 
 # C'est quoi une expression ?
 
-Quelque chose qui est **évalué** et retourne une **valeur**
+## Instruction vs Expression
+
+- **Instruction**: faire faire quelque chose, on attend que ce soit fait pas une valeur
+- **Expression**: évaluer quelque chose, on exécute quelque chose pour produire une valeur
+
+##--##
+
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
+# C'est quoi une expression ?
 
 En **Java**:
 
@@ -89,8 +98,6 @@ if(isTrue("true")) {
 
 # C'est quoi une expression ?
 
-Quelque chose qui est **évalué** et retourne une **valeur**
-
 En **Scala**:
 
 ```scala
@@ -102,6 +109,24 @@ val text = if(true) {
 
 text
 ```
+
+##--##
+
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
+# Le cas `Unit`
+
+```scala
+val x = println("Hello 👋")
+```
+
+- `Unit` représente une **expression** n'ayant pas produit de valeur _utile_
+- `Unit` indique que l'expression a produit un **effet** plutôt qu'une valeur
+- `()` est la seule valeur possible pour `Unit`
+
+Notes:
+
+- **effet** = persister quelque chose, écrire sur la console, appel HTTP sans résultat
 
 ##==##
 
