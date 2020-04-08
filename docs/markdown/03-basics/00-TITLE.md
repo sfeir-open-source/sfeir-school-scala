@@ -94,8 +94,8 @@ Ne prêtez pas attention au `// 0` dans le worksheet, c'est le worksheet qui les
 
 ## Instruction vs Expression
 
-- **Instruction**: faire faire quelque chose, on attend que ce soit fait pas une valeur
-- **Expression**: évaluer quelque chose, on exécute quelque chose pour produire une valeur
+- **Instruction**: faire faire quelque chose, on attend que ce soit fait, pas une **valeur**
+- **Expression**: évaluer quelque chose, on **exécute** quelque chose pour produire une **valeur**
 
 ##--##
 
@@ -144,7 +144,7 @@ val x = println("Hello 👋")
 ```
 
 - `Unit` représente une **expression** n'ayant pas produit de valeur _utile_
-- `Unit` indique que l'expression a produit un **effet** plutôt qu'une valeur
+- `Unit` est un indicateur que l'expression a produit un **effet** plutôt qu'une valeur
 - `()` est la seule valeur possible pour `Unit`
 
 Notes:
@@ -211,11 +211,11 @@ maybeParams()
 ## Une fonction dans une fonction
 
 ```scala
-def greatherThan5(x: Int): Unit = {
+def greatherThan5(x: Int): String = {
   if(x >= 5) {
-    println(s"$x est plus grand que 5")
+    s"$x est plus grand que 5"
   } else {
-    println(s"$x est plus petit que 5")
+    s"$x est plus petit que 5"
   }
 }
 
@@ -226,7 +226,8 @@ greatherThan5(7)
 
 Notes:
 
-Imaginez qu'on a une **condition complexe**, avec des dépendances externes
+1. remplacer `x >= 5` par une fonction `complexCondition`
+   Imaginez qu'on a une **condition complexe**, avec des dépendances externes
 
 ##--##
 
@@ -261,8 +262,8 @@ val evaluatedAtCreation = {
 }
 
 println("After init")
-println(evaluatedAtCreation)
-println(evaluatedAtCreation)
+evaluatedAtCreation
+evaluatedAtCreation
 ```
 
 Notes:
@@ -285,8 +286,8 @@ lazy val lazyEvaluation = {
 }
 
 println("not yet evaluated")
-println(s"evalute it now ! $lazyEvaluation")
-println(s"evalute it now ! $lazyEvaluation")
+s"evalute it now ! $lazyEvaluation"
+s"evalute it now ! $lazyEvaluation"
 ```
 
 ##--##
@@ -306,8 +307,8 @@ def eachTime = {
 }
 
 println("not yet evaluated")
-println(s"evaluate it at each call $eachTime")
-println(s"evaluate it at each call $eachTime")
+s"evaluate it at each call $eachTime"
+s"evaluate it at each call $eachTime"
 ```
 
 ##--##
@@ -360,11 +361,8 @@ val message = "Hello world"
 
 def inc(x: Int) = x + 1
 
-println(
-  s"""
-     |$message: ${message.getClass}
-     |${inc(1)}: ${inc(1).getClass}
-     |""".stripMargin)
+message.getClass
+inc(1).getClass
 ```
 
 Notes:
@@ -382,7 +380,7 @@ Notes:
 
 ## `class`
 
-On peut faire des classes
+On peut faire des `class`
 
 ```scala
 class Animal(name: String) {
@@ -477,7 +475,8 @@ say(One)
 Notes:
 
 1. Ajouter `case` a `One` pour montrer qu'on a le `toString`
-   ##--##
+
+##--##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
@@ -522,13 +521,15 @@ Dog("Lassie")
 
 ##--##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code big-code" -->
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
 # La méthode `apply`
 
+Dans une `class`: permet d'avoir une action sur les instances
+
 ```scala
 case class Increment(x: Int) {
-  def apply(y: Int): Unit = s"$x + $y = ${x+y}"
+  def apply(y: Int): Int = x + y
 }
 
 val incBy1 = Increment(1)
@@ -560,7 +561,7 @@ login("John", "pwd123")
 # Les tuples
 
 ```scala
-() // tuple vide
+() // tuple vide => Unit
 (1) // tuple-1 -> inutile non ?
 (1, true) // tuple-2, une paire
 (1, true, "plop") // tuple-3: un triplet
@@ -577,7 +578,7 @@ login("John", "pwd123")
 - CE N'EST PAS UNE LISTE OU UN TABLEAU
 - Proche d'une `case class` dans le principe
 - a utiliser localement (en interne d'une fonction) plutôt que comme retour: un **tuple** n'a pas de **nom** donc pas de **sens**
-- conseil: ne pas dépasser des **tuple-3**, sinon on perd le **sens**
+- conseil: ne pas dépasser des **tuple-3**, sinon on perd le **sens**: préférez une `case class`
 
 ##--##
 
@@ -589,11 +590,13 @@ login("John", "pwd123")
 val pair = (1, true) // tuple-2, une paire
 val triplet = (1, true, "plop") // tuple-3: un triplet
 
-pair.\_2
-triplet.\_3
+pair._2
+triplet._3
 ```
 
 Notes:
+
+Ajouter la comparaison
 
 ```scala
 (1, true) == (1, true)
@@ -610,6 +613,7 @@ Faire un programme de **Todo**
 
 1. Créer une todo avec un libellé
 2. Terminer une todo
+3. _[Optionel]_ Ajouter une date de réalisation
 
 🚫 Utiliser `Boolean`
 
@@ -618,16 +622,15 @@ Faire un programme de **Todo**
 Notes:
 
 ```scala
-class Task
-case object TODO extends Task
-case object DONE extends Task
+import java.time.ZonedDateTime
 
-case class Todo(desc: String, state: Task = TODO) {
-def done = Todo(desc, DONE)
+class Task
+case class Done(label: String, date: ZonedDateTime) extends Task
+case class Todo(label: String) extends Task {
+  val done = Done(label, ZonedDateTime.now)
 }
 
-val todo = Todo("Faire l'exercice")
-todo
+val todo = Todo("Do that f**** exo")
 todo.done
 ```
 
@@ -643,6 +646,7 @@ Les `List` sont représentées par 2 états:
 - avec une valeur => `::`
 
 ```scala
+Nil
 1 :: 2 :: 3 :: Nil
 ```
 
@@ -652,11 +656,11 @@ Les `List` sont représentées par 2 états:
 
 # `List`
 
+On utilise l'objet compagnon de `List` et sa méthode `apply` pour créer une liste
+
 ```scala
-// On utilise l'objet compagnon de List pour créer une liste
 val strings = List("foo", "bar", "baz")
-strings
-strings(1)
+strings(1) // strings.apply(1)
 ```
 
 Notes:
@@ -664,7 +668,8 @@ Notes:
 - c'est là que l'objet compagnon est utile `List.apply`
 - différent d'un tuple: ensemble homogène de valeur, itérable
 - `::` n'est pas un opérateur de Scala ! C'est une fonction
-  ##==##
+
+##==##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
@@ -678,11 +683,10 @@ def >>>(s1: String, s2: String) = s"$s1 >>> $s2"
 >>>("foo","bar")
 
 case class Foo(s: String) {
-def +(other: Foo) = Foo(s"$s + ${other.s}")
+  def +(other: Foo) = Foo(s"$s + ${other.s}")
 }
 
-Foo("foo").+(Foo("bar"))
-
+Foo("foo").+(Foo("bar")).+(Foo("baz"))
 Foo("foo") + Foo("bar") + Foo("baz")
 ```
 
@@ -692,7 +696,7 @@ Notes:
 - utiliser pour les opérations mathématiques: `+` est une fonction par exemple !
 - attention a la syntaxe sans point _infixe_ vs _prefixe_
 - attention a la lisibilité ! Que veut dire `>>>` ?
-- A réserver pour des librairies plutôt que des app et que le sens de l'opérateur soit partagé
+- A réserver pour des librairies plutôt que des applications et que le sens de l'opérateur soit partagé
 
 ##--##
 
@@ -725,9 +729,9 @@ Test("1 + 1 == 3") should {
 # `for`
 
 ```scala
-for(x <- 1 to 10) println(s"$x ") // inclusif
+for(x <- 1 to 5) print(s"$x ") // inclusif
 println("------")
-for(x <- 1 until 10) println(s"$x ") // exclusif
+for(x <- 1 until 5) print(s"$x ") // exclusif
 ```
 
 ##--##
@@ -740,8 +744,8 @@ for(x <- 1 until 10) println(s"$x ") // exclusif
 
 ```scala
 var x = 0
-while(x < 10) {
-  println(s"$x ")
+while(x < 5) {
+  print(s"$x ")
   x = x + 1
 }
 ```
@@ -757,9 +761,9 @@ while(x < 10) {
 ```scala
 var x = 0
 do {
-  println(s"$x ")
+  print(s"$x ")
   x = x + 1
-} while (x < 10)
+} while (x < 5)
 ```
 
 ##--##
@@ -771,7 +775,7 @@ do {
 ## for-each
 
 ```scala
-for( x <- List("foo","bar")) println(s"$x ")
+for( x <- List("foo","bar")) print(s"$x ")
 ```
 
 ##--##
@@ -811,7 +815,7 @@ for {
 
 ```scala
 for {
-  x <- 1 to 3
+  x <- 'a' to 'c'
   y <- 1 to 3
 } yield (x,y)
 ```
@@ -848,7 +852,7 @@ for {
 ```scala
 def head(xs: List[String]): String =
   xs match {
-    case x :: xs => s"Head = $x"
+    case x :: xs => x
     case xs      => "empty list"
   }
 
@@ -856,6 +860,9 @@ head(List("a","b","c"))
 head(List())
 ```
 
+Notes:
+
+1. remplacer les `xs` par `_`
 ##--##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
@@ -864,13 +871,13 @@ head(List())
 
 ```scala
 case class Name(name: String)
-case class Hero(name: Name, power: Int)
+case class Person(name: Name, age: Int)
 
-def print(hero: Hero) = hero match {
-  case Hero(Name(name), power) => s"$name has power $power"
+def print(person: Person) = person match {
+  case Person(Name(name), age) => s"$name has age $age"
 }
 
-print(Hero(Name("foo"), 100))
+print(Person(Name("Joe"), 42))
 ```
 
 ##--##
@@ -880,23 +887,24 @@ print(Hero(Name("foo"), 100))
 # Pattern matching: voir le motif (3)
 
 ```scala
-case class Hero(name: String, power: Int)
+case class Person(name: String, age: Int)
 
-def print(hero: Hero) = {
-  val Hero(name, power) = hero
-  s"$name has power $power"
+def print(person: Person) = {
+  val Person(name, age) = person
+  s"$name has age $age"
 }
 
-print(Hero("foo", 100))
+print(Person("Joe", 42))
 ```
 
 Notes:
 
-ça marche aussi pour des
+ça marche aussi pour des tuples ou listes:
 
 ```scala
-val (x,y) = (1,2) // tuples
-val head :: _ = List(1,2,3) // listes
+val (x,y) = (1,2) 
+val head :: _ = List(1,2,3)
+val oups :: _ = List()
 ```
 
 ##--##
@@ -906,14 +914,14 @@ val head :: _ = List(1,2,3) // listes
 # Pattern matching: l'ordre compte
 
 ```scala
-def firstTwo(xs: List[String]): String =
+def firstTwo(xs: List[String]): List[String] =
   xs match {
-    case x :: y :: xs => s"First two: $x, $y"
-    case x :: xs      => s"Head = $x"
-    case xs           => "empty list"
+    case x :: y :: _ => List(x, y)
+    case x :: _      => List(x)
+    case _           => List()
   }
 
-firstTwo(List("a","b","c"))
+firstTwo(List("a", "b", "c"))
 firstTwo(List("foo"))
 firstTwo(List())
 ```
@@ -922,7 +930,7 @@ firstTwo(List())
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
-# Pattern matching: plusieurs possibilités
+# Pattern matching: multi-cas
 
 On peut faire un `case` pour plusieurs valeurs
 
@@ -940,19 +948,16 @@ isVoyel('b')
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
-# Pattern matching: plusieurs possibilités
+# Pattern matching: multi-cas
 
 On peut aussi utiliser `if` dans `case`
 
 ```scala
-def isVoyel(c: Char) = {
-  def isIn(x: Char) = List('a','e','i','o','u').contains(x) // on pourrait réduire la fonction  a cette ligne 😁
-
+def isVoyel(c: Char) =
   c match {
-    case char if isIn(char) => true
+    case char if List('a', 'e', 'i', 'o', 'u').contains(char) => true
     case _ => false
   }
-}
 
 isVoyel('a')
 isVoyel('b')
@@ -962,6 +967,7 @@ Notes:
 
 On est d'accord que cette implémentation est _foireuse_, le `List().contains` est plus lisible !
 C'est un exemple 😁
+
 ##--##
 
 <!-- .slide: class="sfeir-bg-pink exercice" -->
@@ -971,22 +977,24 @@ C'est un exemple 😁
 Faire un programme de **FizzBuzz**
 
 1. Le programme prend des nombres de 1 a 100
-2. si le nombre est un multiple de `3` afficher **Fizz**
-3. si le nombre est un multiple de `5` afficher **Buzz**
-4. si le nombre est un multiple de `3` et `5` afficher **FizzBuzz**
+2. Si le nombre est un multiple de `3` afficher **Fizz**
+3. Si le nombre est un multiple de `5` afficher **Buzz**
+4. Si le nombre est un multiple de `3` et `5` afficher **FizzBuzz**
 5. Sinon afficher le nombre
 
 🚫 Pas de `if`
+
+💡les tuples sont vos amis
 
 Notes:
 
 ```scala
 for(x <- 1 to 100) yield
   (x % 3, x % 5) match {
-    case (0,0) => "FizzBuzz"
+    case (0, 0) => "FizzBuzz"
     case (0, _) => "Fizz"
     case (_, 0) => "Buzz"
-    case _ => x.toString
+    case _      => x.toString
   }
 ```
 
@@ -1020,7 +1028,8 @@ try {
 
 Notes:
 
-`try` est aussi une **expression**: montrer l'assignation
+1. `try` est aussi une **expression**: montrer l'assignation
+2. on peut avoir plusieurs `case`
 
 ##--##
 
@@ -1054,6 +1063,17 @@ val add: (Int, Int) => Int = (x, y) => x + y
 add(1, 2)
 ```
 
+Notes:
+
+C'est un **groupe de paramètre** pas un **tuple**
+
+```scala
+val add: ((Int, Int)) => Int = (pair) => pair._1 + pair._2
+
+val pair = (1,2)
+add(pair)
+```
+
 ##--##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
@@ -1079,6 +1099,21 @@ Notes:
 Notion d'**application partielle**
 
 ##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Application partielle
+
+Ne pas donner tous les paramètres
+```scala
+def add(x: Int, y: Int, z: Int) = x + y + z
+
+val add1 = add(1, 2, _)
+add1(3)
+
+val add2 = add(1, _, _)
+add2(2, 3)
+```
+
+##--##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
@@ -1086,12 +1121,12 @@ Notion d'**application partielle**
 
 Une fonction `+` une fonction `=` une fonction.
 
-Le résultat est passé comme argument a la fonction suivante
-
 Au choix:
 
 - `andThen`: préféré en Scala, on compose dans l'ordre de lecture
 - `compose`: on compose dans le même ordre que si on appliquait les fonctions
+
+Le résultat est passé comme argument a la fonction suivante
 
 ##--##
 
@@ -1118,22 +1153,15 @@ one(second("application"))
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
-# Les Fonctions
-
-## Groupe de paramètres
+# Une fonction c'est une valeur
 
 ```scala
-case class Person(name: String)
+def operation(op: (Int, Int) => Int, x: Int, y: Int) =
+  op(x, y)
 
-class Repository {
-  def save(p: Person): Unit = println(s"save $p")
-}
 
-def inTransaction(repository: Repository)(f: Repository => Unit) = f(repository)
-
-inTransaction(new Repository) { repo =>
-  repo.save(Person("Jane"))
-}
+operation(_ + _, 1, 2)
+operation(_ * _, 2, 3)
 ```
 
 ##==##
@@ -1145,13 +1173,13 @@ inTransaction(new Repository) { repo =>
 ## Se passer des boucles
 
 ```scala
-List("foo","bar","baz").map(s => s.toUpperCase)
+List("foo","bar","baz")
+  .map(s => s.toUpperCase)
 ```
 
 Notes:
 
 1. Utiliser `_` dans `s => s.toUpperCase`
-2. Utiliser `foreach(s => println(s))` puis `foreach(println(_))` puis foreach(println)
 
 ##--##
 
@@ -1165,7 +1193,6 @@ Notes:
 def upper(s:String) = s.toUpperCase
 
 List("foo","bar","baz").map(s => upper(s))
-.foreach(println)
 ```
 
 Notes:
@@ -1181,8 +1208,8 @@ Utiliser `upper` a la place de `s => upper(s)`
 ## Filtrer aussi
 
 ```scala
-List("scala","java","haskell","go","javascript").filter(_.length > 4)
-  .foreach(println)
+List("scala","java","haskell","go","javascript")
+  .filter(_.length > 4)
 ```
 
 ##--##
@@ -1198,7 +1225,7 @@ Map(("foo", 1), ("bar", 2))
 Notes:
 
 1. utiliser `->`
-2. montrer
+2. montrer `map` et `filter`
 
 ```scala
 val map = Map("foo" -> 1, "bar" -> 2)
@@ -1236,9 +1263,6 @@ Notes:
 ```scala
 val some: Option[Int]  = Some(1)
 val none: Option[Int] = None
-
-some
-none
 ```
 
 ##--##
@@ -1259,7 +1283,7 @@ head(List())
 
 Notes:
 
-1. Ajouter le cas `3. ${head(List(""))}` (tête d'une liste contenant `""`)
+1. Ajouter le cas `List("")` (tête d'une liste contenant `""`)
 2. Transformer avec `Option`
 3. montrer qu'on peut utiliser `map`
 
@@ -1348,7 +1372,7 @@ Notes:
 Solution
 
 ```scala
-def map[A,B](xs: List[A], f: A => B): List[B] =xs match {
+def map[A,B](xs: List[A], f: A => B): List[B] = xs match {
   case x :: tail => f(x) :: map(tail, f)
   case Nil => Nil
 }
@@ -1379,6 +1403,10 @@ case class Person(name: String, age: Int) extends Votant
 
 Person("John", 19).canVote
 ```
+
+Notes:
+
+Faire remarquer que la méthode `age` dans le `trait` est implémenté par la propriété `age` de la `case class`
 
 ##--##
 
@@ -1420,7 +1448,7 @@ Ajouter:
 
 ```scala
 case class DogBot() extends Robot with Dog
-println(DogBot().say)
+DogBot().say
 ```
 
 ##--##
