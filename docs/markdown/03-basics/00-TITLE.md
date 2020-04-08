@@ -623,7 +623,7 @@ Ajouter la comparaison
 
 ##--##
 
-<!-- .slide: class="sfeir-bg-pink exercice" -->
+<!-- .slide: class="sfeir-bg-pink exercice with-code big-code" -->
 
 ## Exercice
 
@@ -1010,7 +1010,7 @@ C'est un exemple 😁
 
 ##--##
 
-<!-- .slide: class="sfeir-bg-pink exercice" -->
+<!-- .slide: class="sfeir-bg-pink exercice with-code big-code" -->
 
 ## Exercice
 
@@ -1355,7 +1355,7 @@ Notes:
 
 ##--##
 
-<!-- .slide: class="sfeir-bg-pink exercice" -->
+<!-- .slide: class="sfeir-bg-pink exercice with-code big-code" -->
 
 ## Exercice
 
@@ -1424,7 +1424,7 @@ keys(Map("a" -> 1, "b" -> 2))
 
 ##--##
 
-<!-- .slide: class="sfeir-bg-pink exercice" -->
+<!-- .slide: class="sfeir-bg-pink exercice with-code big-code" -->
 
 ## Exercice
 
@@ -1605,7 +1605,7 @@ Notes:
 
 ##--##
 
-<!-- .slide: class="sfeir-bg-pink exercice" -->
+<!-- .slide: class="sfeir-bg-pink exercice with-code big-code" -->
 
 ## Exercice
 
