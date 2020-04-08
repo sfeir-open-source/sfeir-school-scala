@@ -1704,3 +1704,113 @@ mutables += 4
 mutables.+=(5)
 mutables
 ```
+
+##==##
+<!-- .slide: class="transition-white sfeir-bg-red" -->
+# `Implicit`
+
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# `Implicit`
+
+⚠️ A la façon de l'utiliser
+
+> C'est pas parce qu'on peut le faire qu'il faut le faire
+
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# `Implicit`
+
+Le compilateur détecte qu'il y a une valeur `implicit` disponible et l'utilise
+
+```scala
+implicit val inc = 1
+
+def increment(implicit x: Int) = x + 1
+
+increment(2)
+```
+
+Notes:
+
+* dans un groupe de paramètre, `implicit` s'applique a l'ensemble
+
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# `Implicit`
+
+⚠️ A la façon de l'utiliser
+
+👍 passer une dépendance technique transverse
+
+👎 quasiment tout le reste (IMHO)
+
+Notes:
+
+👍**Akka** (lib de streaming) l'utilise pour passer un contexte technique (pour simplifier un thread manager)
+
+👎passer un service, repository, de la conf...
+
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# `Implicit` 
+
+Par contre ça permet des trucs assez cool 🤩
+
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Pimp my library
+
+Etendre les fonctionnalités d'une classe
+
+```scala
+implicit class StringOps(s: String) {
+  def hello = s"Hello s !"
+}
+
+"World".hello
+```
+
+Notes:
+
+Disponible partout où vous importerez `StringOps`
+
+##--##
+<!-- .slide: class="sfeir-bg-pink exercice with-code big-code" -->
+## Exercice
+
+Implémenter un opérateur `|>` disponible pour **n'importe quelle valeur**
+
+```scala
+"World" |> (s => s"Hello $s") |> (s => s.toUpperCase) // HELLO WORLD
+
+case class Person(name: String)
+Person("Joe") |> (p => p.copy(name = "bob")) // Person(bob)
+```
+
+Notes:
+
+Solution
+
+```scala
+implicit class PipelineOps[A](a: A) {
+  def |>[B](f: A => B): B = f(a)
+}
+```
+
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Typeclass (1)
+
+* Ad-hoc polymorphisme: _dire qu'une classe implémente une interface après se création_
+
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Typeclass (2)
+
+* même idée que **Pimp my library** mais plus poussée
+* met en oeuvre des concepts avancés
+
+=> Trop complexe pour cette formation mais super cool 👍
+
+[A lire plus tard](https://scalac.io/typeclasses-in-scala/)
