@@ -857,7 +857,9 @@ for {
 ```
 
 ##==##
+
 <!-- .slide: class="transition-white sfeir-bg-red" -->
+
 # Pattern matching
 
 ##--##
@@ -1039,7 +1041,9 @@ for(x <- 1 to 100) yield
 ```
 
 ##==##
+
 <!-- .slide: class="transition-white sfeir-bg-red" -->
+
 # Exception
 
 ##--##
@@ -1076,17 +1080,21 @@ Notes:
 2. on peut avoir plusieurs `case`
 
 ##==##
+
 <!-- .slide: class="transition-white sfeir-bg-red" -->
+
 # Lambda
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Lambda
 
 C'est quoi ?
 
-* une fonction anonyme
-* une valeur
+- une fonction anonyme
+- une valeur
 
 ##--##
 
@@ -1227,7 +1235,9 @@ operation(_ * _, 2, 3)
 ```
 
 ##==##
+
 <!-- .slide: class="transition-white sfeir-bg-red" -->
+
 # API Collection
 
 ##--##
@@ -1362,7 +1372,9 @@ Notes:
 ✅Exo sur l'API collection, enchainer des `map`, `filter`...
 
 ##==##
+
 <!-- .slide: class="transition-white sfeir-bg-red" -->
+
 # Génériques
 
 ##--##
@@ -1456,7 +1468,9 @@ map(List(1,2), (_: Int) + 1)
 ```
 
 ##==##
+
 <!-- .slide: class="transition-white sfeir-bg-red" -->
+
 # `trait`
 
 ##--##
@@ -1638,23 +1652,29 @@ head(List("foo","bar"))
 ```
 
 ##==##
+
 <!-- .slide: class="transition-white sfeir-bg-red" -->
+
 # Immutabilité
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Pourquoi l'immuabilité ?
 
-* L'état d'une valeur ne change pas
-* Modification par copie
-* Pas d'influence externe _cachée_ (parallélisme)
+- L'état d'une valeur ne change pas
+- Modification par copie
+- Pas d'influence externe _cachée_ (parallélisme)
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Valeur vs variable
 
-* une `val` est immuable
-* une `var` peut-être modifié
+- une `val` est immuable
+- une `var` peut-être modifié
 
 ```scala
 val immutable = 2
@@ -1666,11 +1686,13 @@ mutable
 ```
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # `case class`
 
-* Par défaut les propriétés d'une `case class` sont immuables
-* il faut utiliser `var` pour la rendre mutable
+- Par défaut les propriétés d'une `case class` sont immuables
+- il faut utiliser `var` pour la rendre mutable
 
 ```scala
 case class Immutable(x: Int)
@@ -1686,11 +1708,13 @@ mutable.x = 1
 ```
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Collection
 
-* les collections sont immuables par défaut
-* il faut utiliser celle du package `mutable` le cas échéant
+- les collections sont immuables par défaut
+- il faut utiliser celle du package `mutable` le cas échéant
 
 ```scala
 import scala.collection.mutable
@@ -1706,11 +1730,15 @@ mutables
 ```
 
 ##==##
+
 <!-- .slide: class="transition-white sfeir-bg-red" -->
+
 # `Implicit`
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # `Implicit`
 
 ⚠️ A la façon de l'utiliser
@@ -1718,7 +1746,9 @@ mutables
 > C'est pas parce qu'on peut le faire qu'il faut le faire
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # `Implicit`
 
 Le compilateur détecte qu'il y a une valeur `implicit` disponible et l'utilise
@@ -1733,10 +1763,12 @@ increment(2)
 
 Notes:
 
-* dans un groupe de paramètre, `implicit` s'applique a l'ensemble
+- dans un groupe de paramètre, `implicit` s'applique a l'ensemble
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # `Implicit`
 
 ⚠️ A la façon de l'utiliser
@@ -1752,13 +1784,17 @@ Notes:
 👎passer un service, repository, de la conf...
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
-# `Implicit` 
+
+# `Implicit`
 
 Par contre ça permet des trucs assez cool 🤩
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Pimp my library
 
 Etendre les fonctionnalités d'une classe
@@ -1776,7 +1812,9 @@ Notes:
 Disponible partout où vous importerez `StringOps`
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-pink exercice with-code big-code" -->
+
 ## Exercice
 
 Implémenter un opérateur `|>` disponible pour **n'importe quelle valeur**
@@ -1799,17 +1837,21 @@ implicit class PipelineOps[A](a: A) {
 ```
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Typeclass (1)
 
-* Ad-hoc polymorphisme: _dire qu'une classe implémente une interface après se création_
+- Ad-hoc polymorphisme: _dire qu'une classe implémente une interface après se création_
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Typeclass (2)
 
-* même idée que **Pimp my library** mais plus poussée
-* met en oeuvre des concepts avancés
+- même idée que **Pimp my library** mais plus poussée
+- met en oeuvre des concepts avancés
 
 => Trop complexe pour cette formation mais super cool 👍
 
