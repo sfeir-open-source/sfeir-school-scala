@@ -1834,16 +1834,9 @@ implicit class PipelineOps[A](a: A) {
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
-# Typeclass (1)
+# Typeclass
 
 - Ad-hoc polymorphisme: _dire qu'une classe implémente une interface après se création_
-
-##--##
-
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
-
-# Typeclass (2)
-
 - même idée que **Pimp my library** mais plus poussée
 - met en oeuvre des concepts avancés
 
