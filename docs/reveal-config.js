@@ -66,7 +66,6 @@ Reveal.initialize({
           return !!document.body.classList;
         }
       },
-      {src: "https://embed.scalafiddle.io/integration.js"}
       // { src: 'node_modules/reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
       // { src: 'node_modules/reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
     ]
