@@ -1636,3 +1636,71 @@ def head[A](xs: List[A]): Maybe[A] = xs match {
 
 head(List("foo","bar"))
 ```
+
+##==##
+<!-- .slide: class="transition-white sfeir-bg-red" -->
+# Immutabilité
+
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Pourquoi l'immuabilité ?
+
+* L'état d'une valeur ne change pas
+* Modification par copie
+* Pas d'influence externe _cachée_ (parallélisme)
+
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Valeur vs variable
+
+* une `val` est immuable
+* une `var` peut-être modifié
+
+```scala
+val immutable = 2
+var mutable = 3
+mutable = 4
+
+immutable
+mutable
+```
+
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# `case class`
+
+* Par défaut les propriétés d'une `case class` sont immuables
+* il faut utiliser `var` pour la rendre mutable
+
+```scala
+case class Immutable(x: Int)
+
+val immutable = Immutable(42)
+immutable.copy(x = 1)
+immutable
+
+case class Mutable(var x: Int)
+
+val mutable = Mutable(42)
+mutable.x = 1
+```
+
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Collection
+
+* les collections sont immuables par défaut
+* il faut utiliser celle du package `mutable` le cas échéant
+
+```scala
+import scala.collection.mutable
+
+val immutables = List(1,2,3)
+0 :: immutables
+immutables
+
+val mutables = mutable.ListBuffer(1,2,3)
+mutables += 4
+mutables.+=(5)
+mutables
+```
