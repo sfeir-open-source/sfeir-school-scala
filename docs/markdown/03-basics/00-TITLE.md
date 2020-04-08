@@ -153,6 +153,12 @@ Notes:
 
 ##==##
 
+<!-- .slide: class="transition-white sfeir-bg-red" -->
+
+# Les Fonctions
+
+##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
 # Les fonctions
@@ -344,6 +350,12 @@ Notes:
 Ajouter le `=>` dans la fonction `logDebug`
 
 ##==##
+
+<!-- .slide: class="transition-white sfeir-bg-red" -->
+
+# Classes
+
+##--##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
@@ -556,6 +568,12 @@ login("John", "pwd123")
 
 ##==##
 
+<!-- .slide: class="transition-white sfeir-bg-red" -->
+
+# Les tuples
+
+##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
 # Les tuples
@@ -636,6 +654,12 @@ todo.done
 
 ##==##
 
+<!-- .slide: class="transition-white sfeir-bg-red" -->
+
+# Listes
+
+##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
 # `List`
@@ -670,6 +694,12 @@ Notes:
 - `::` n'est pas un opérateur de Scala ! C'est une fonction
 
 ##==##
+
+<!-- .slide: class="transition-white sfeir-bg-red" -->
+
+# Les Fonctions
+
+##--##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
@@ -721,6 +751,12 @@ Test("1 + 1 == 3") should {
 ```
 
 ##==##
+
+<!-- .slide: class="transition-white sfeir-bg-red" -->
+
+# Les Boucles
+
+##--##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
@@ -821,6 +857,10 @@ for {
 ```
 
 ##==##
+<!-- .slide: class="transition-white sfeir-bg-red" -->
+# Pattern matching
+
+##--##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
@@ -863,7 +903,7 @@ head(List())
 Notes:
 
 1. remplacer les `xs` par `_`
-##--##
+   ##--##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
@@ -902,7 +942,7 @@ Notes:
 ça marche aussi pour des tuples ou listes:
 
 ```scala
-val (x,y) = (1,2) 
+val (x,y) = (1,2)
 val head :: _ = List(1,2,3)
 val oups :: _ = List()
 ```
@@ -999,6 +1039,10 @@ for(x <- 1 to 100) yield
 ```
 
 ##==##
+<!-- .slide: class="transition-white sfeir-bg-red" -->
+# Exception
+
+##--##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
@@ -1031,11 +1075,26 @@ Notes:
 1. `try` est aussi une **expression**: montrer l'assignation
 2. on peut avoir plusieurs `case`
 
+##==##
+<!-- .slide: class="transition-white sfeir-bg-red" -->
+# Lambda
+
+##--##
+<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+# Lambda
+
+C'est quoi ?
+
+* une fonction anonyme
+* une valeur
+
 ##--##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
 # Lambda
+
+Plusieurs façon d'en écrire
 
 ```scala
 val f = (x: Int) => x + 1
@@ -1099,10 +1158,13 @@ Notes:
 Notion d'**application partielle**
 
 ##--##
+
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+
 # Application partielle
 
 Ne pas donner tous les paramètres
+
 ```scala
 def add(x: Int, y: Int, z: Int) = x + y + z
 
@@ -1165,6 +1227,10 @@ operation(_ * _, 2, 3)
 ```
 
 ##==##
+<!-- .slide: class="transition-white sfeir-bg-red" -->
+# API Collection
+
+##--##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
@@ -1294,7 +1360,12 @@ Notes:
 ## Exercice
 
 ✅Exo sur l'API collection, enchainer des `map`, `filter`...
+
 ##==##
+<!-- .slide: class="transition-white sfeir-bg-red" -->
+# Génériques
+
+##--##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
@@ -1385,6 +1456,10 @@ map(List(1,2), (_: Int) + 1)
 ```
 
 ##==##
+<!-- .slide: class="transition-white sfeir-bg-red" -->
+# `trait`
+
+##--##
 
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 

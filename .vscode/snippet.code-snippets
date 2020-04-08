@@ -23,5 +23,14 @@
 			"##--##",
 "<!-- .slide: class=\"sfeir-bg-pink exercice\" -->",
 "## Exercice"]
+	},
+	"new chapter": {
+		"scope":"markdown,md",
+		"prefix": "chapter",
+		"body": [
+			"##==##",
+				"<!-- .slide: class=\"transition-white sfeir-bg-red\" -->",
+				"# $0"
+			]
+		}
 	}
-}
