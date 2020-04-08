@@ -1518,9 +1518,6 @@ Notes:
 
 1. Ajouter le `case object Orange`: montrer l'échec du _pattern matching_
 2. Ajouter `sealed` sur le `trait`: montrer le warning sur le _pattern matching_
-3. Passer sur intellij avec:
-   - `scalacOptions += "-Xfatal-warnings"` dans `build.sbt`
-   - ⚠️dans un fichier **scala** pas un **worksheet**⚠️
 
 ##--##
 
