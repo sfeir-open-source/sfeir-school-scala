@@ -29,7 +29,7 @@ Notes:
 
 # Les variables
 
-## `val` vs `var`
+`val` vs `var`
 
 ```scala
 val x = 1
@@ -92,7 +92,7 @@ Ne prêtez pas attention au `// 0` dans le worksheet, c'est le worksheet qui les
 
 # C'est quoi une expression ?
 
-## Instruction vs Expression
+Instruction vs Expression
 
 - **Instruction**: faire faire quelque chose, on attend que ce soit fait, pas une **valeur**
 - **Expression**: évaluer quelque chose, on **exécute** quelque chose pour produire une **valeur**
@@ -163,7 +163,7 @@ Notes:
 
 # Les fonctions
 
-## mot-clé `def`
+mot-clé `def`
 
 ```scala
 def increment(x: Int): Int = x + 1
@@ -181,7 +181,7 @@ Vous pouvez mettre des accolades s'il y a plusieurs lignes
 
 # Les fonctions
 
-## Paramètres nommés
+Paramètres nommés
 
 ```scala
 def namedParameters(s1: String, s2: String): String = s"$s1 $s2"
@@ -196,7 +196,7 @@ namedParameters(s2 = "foo", s1 = "bar")
 
 # Les fonctions
 
-## Paramètres optionels
+Paramètres optionels
 
 ```scala
 def maybeParams(s1: String = "nope", s2: String = "nope"): String = s"$s1 $s2"
@@ -214,7 +214,7 @@ maybeParams()
 
 # Les fonctions
 
-## Une fonction dans une fonction
+Une fonction dans une fonction
 
 ```scala
 def greatherThan5(x: Int): String = {
@@ -241,7 +241,7 @@ Notes:
 
 # Les Fonctions
 
-## Groupe de paramètres
+Groupe de paramètres
 
 Une fonction peut avoir plusieurs groupe de paramètres
 
@@ -323,7 +323,7 @@ s"evaluate it at each call $eachTime"
 
 # Evaluation
 
-## _call by name_ vs _call by value_
+_call by name_ vs _call by value_
 
 - **call by value**: paramètre évalué à **l'appel de méthode**
 - **call by name**: paramètre évalué **s'il est utilisé**
@@ -390,8 +390,6 @@ Notes:
 
 # Les classes
 
-## `class`
-
 On peut faire des `class`
 
 ```scala
@@ -412,8 +410,6 @@ pas de `getter`, `equals`...
 <!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
 
 # Les classes
-
-## `case class`
 
 Mais les `case class` c'est beaucoup mieux
 
@@ -494,9 +490,7 @@ Notes:
 
 # Les `object`s
 
-## Objet compagnon
-
-Pour des méthodes communes
+Objet compagnon: pour des méthodes communes
 
 ```scala
 case class Number(i: Int)
@@ -705,7 +699,7 @@ Notes:
 
 # Les Fonctions
 
-## Avec des symboles
+Avec des symboles
 
 ```scala
 def >>>(s1: String, s2: String) = s"$s1 >>> $s2"
@@ -1246,7 +1240,7 @@ operation(_ * _, 2, 3)
 
 # API Collection
 
-## Se passer des boucles
+Se passer des boucles
 
 ```scala
 List("foo","bar","baz")
@@ -1263,7 +1257,7 @@ Notes:
 
 # API Collection
 
-## Se passer des boucles
+Se passer des boucles
 
 ```scala
 def upper(s:String) = s.toUpperCase
@@ -1281,7 +1275,7 @@ Utiliser `upper` a la place de `s => upper(s)`
 
 # API Collection
 
-## Filtrer aussi
+Filtrer aussi
 
 ```scala
 List("scala","java","haskell","go","javascript")
