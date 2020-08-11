@@ -1,11 +1,10 @@
-<!-- .slide: class="transition-white sfeir-bg-red" -->
+<!-- .slide: class="transition bg-pink" -->
 
 # Les bases
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
-
+<!-- .slide: class="with-code consolas" -->
 # Hello World
 
 ```scala
@@ -15,6 +14,7 @@ object Main {
   }
 }
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
@@ -23,9 +23,7 @@ Notes:
 3. Utiliser le trait `App` (plus besoin du `main`)
 4. utiliser des _string interpolation_: `s"Hello ${args(0)}`
 
-##--##
-
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+##==##
 
 # Les variables
 
@@ -39,15 +37,14 @@ y = 3
 
 s"x=$x, y=$y"
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
 - On a tendance a privilégié l'immutabilité donc `val`
 - Utiliser `var` pour une question de perf ou si c'est plus **lisible et compréhensible**
 
-##--##
-
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+##==##
 
 # Les conditions
 
@@ -58,14 +55,15 @@ if(true) {
   println("true")
 }
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
 Comme en Java
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # String interpolation
 
@@ -82,13 +80,14 @@ s"""
    |*******************
    """.stripMargin
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
 Ne prêtez pas attention au `// 0` dans le worksheet, c'est le worksheet qui les ajoute automatiquement
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # C'est quoi une expression ?
 
@@ -97,9 +96,9 @@ Instruction vs Expression
 - **Instruction**: faire faire quelque chose, on attend que ce soit fait, pas une **valeur**
 - **Expression**: évaluer quelque chose, on **exécute** quelque chose pour produire une **valeur**
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # C'est quoi une expression ?
 
@@ -114,10 +113,11 @@ if(isTrue("true")) {
     text = "it's false";
 }
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # C'est quoi une expression ?
 
@@ -132,16 +132,18 @@ val text = if(true) {
 
 text
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Le cas `Unit`
 
 ```scala
 val x = println("Hello 👋")
 ```
+<!-- .element: class="big-code" -->
 
 - `Unit` représente une **expression** n'ayant pas produit de valeur _utile_
 - `Unit` est un indicateur que l'expression a produit un **effet** plutôt qu'une valeur
@@ -157,9 +159,9 @@ Notes:
 
 # Les Fonctions
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les fonctions
 
@@ -170,14 +172,15 @@ def increment(x: Int): Int = x + 1
 
 increment(2)
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
 Vous pouvez mettre des accolades s'il y a plusieurs lignes
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les fonctions
 
@@ -189,10 +192,11 @@ def namedParameters(s1: String, s2: String): String = s"$s1 $s2"
 namedParameters("foo", "bar")
 namedParameters(s2 = "foo", s1 = "bar")
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les fonctions
 
@@ -207,10 +211,11 @@ maybeParams("FOO")
 maybeParams(s2 = "FOO")
 maybeParams()
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les fonctions
 
@@ -229,15 +234,16 @@ greatherThan5(5)
 greatherThan5(3)
 greatherThan5(7)
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
 1. remplacer `x >= 5` par une fonction `complexCondition`
    Imaginez qu'on a une **condition complexe**, avec des dépendances externes
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les Fonctions
 
@@ -250,10 +256,11 @@ def add(x:Int)(y:Int) = s"$x + $y = ${x+y}"
 
 add(1)(2)
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Evaluation
 
@@ -271,13 +278,14 @@ println("After init")
 evaluatedAtCreation
 evaluatedAtCreation
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
 Faire remarque l'utilisation d'un bloc de code `{ ... }`
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Evaluation
 
@@ -295,10 +303,11 @@ println("not yet evaluated")
 s"evalute it now ! $lazyEvaluation"
 s"evalute it now ! $lazyEvaluation"
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Evaluation
 
@@ -316,10 +325,11 @@ println("not yet evaluated")
 s"evaluate it at each call $eachTime"
 s"evaluate it at each call $eachTime"
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Evaluation
 
@@ -344,6 +354,7 @@ logDebug({
   "Nope"
 })
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
@@ -355,9 +366,9 @@ Ajouter le `=>` dans la fonction `logDebug`
 
 # Classes
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Inférence de type
 
@@ -376,6 +387,7 @@ def inc(x: Int) = x + 1
 message.getClass
 inc(1).getClass
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
@@ -384,9 +396,9 @@ Notes:
 - _on documente le code_:
   - pour nos collègues
   - pour nous même dans 2 semaines quand on aura oublié ce que fait la fonction
-    ##--##
+    ##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les classes
 
@@ -398,6 +410,7 @@ class Animal(name: String) {
 
 new Animal("Scoubidou")
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 pas de `getter`, `equals`...
@@ -405,9 +418,9 @@ pas de `getter`, `equals`...
 - Montrer qu'on a pas besoin des `{}`
 - Ajouter une méthode `toString`
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les classes
 
@@ -418,6 +431,7 @@ case class Animal(name: String, species: String)
 
 new Animal("Scoubidou", "Chien")
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
@@ -429,9 +443,9 @@ Démo:
 4. `copy` (immuable), la valeur copiée ne change pas
 5. ajout de méthodes `def say(s: String) = s"$name say $s"`
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les classes
 
@@ -440,9 +454,9 @@ Mon conseil:
 - les `class` pour des composants techniques (service, repository...)
 - les `case class` pour des objets métier (entité, DTO...)
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les `object`s
 
@@ -455,14 +469,15 @@ object SuperDog {
 
 SuperDog.say()
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
 En terme d'usage, c'est comme un `static` en java tout en étant très OOP: un `object` est une instance.
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les `object`s
 
@@ -479,14 +494,15 @@ def say(number: Number) = s"You say $number"
 
 say(One)
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
 1. Ajouter `case` a `One` pour montrer qu'on a le `toString`
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les `object`s
 
@@ -501,14 +517,15 @@ object Number {
 
 Number.plus(Number(1), Number(2))
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
 Utile pour faciliter l'import de fonctions annexe a un type (ex: mapper JSON, constructeur)
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # La méthode `apply`
 
@@ -524,10 +541,11 @@ object Dog {
 Dog.apply("Lassie")
 Dog("Lassie")
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # La méthode `apply`
 
@@ -542,10 +560,11 @@ val incBy1 = Increment(1)
 incBy1.apply(3)
 incBy1(2)
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Alias de type
 
@@ -559,6 +578,7 @@ def login(name: Name, password: Password) = s"\$name successfully log in"
 
 login("John", "pwd123")
 ```
+<!-- .element: class="big-code" -->
 
 ##==##
 
@@ -566,9 +586,9 @@ login("John", "pwd123")
 
 # Les tuples
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les tuples
 
@@ -580,10 +600,11 @@ login("John", "pwd123")
 // 22 éléments max, pourquoi pas plus ? mais c'est déjà beaucoup
 (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22)
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les tuples
 
@@ -592,9 +613,9 @@ login("John", "pwd123")
 - a utiliser localement (en interne d'une fonction) plutôt que comme retour: un **tuple** n'a pas de **nom** donc pas de **sens**
 - conseil: ne pas dépasser des **tuple-3**, sinon on perd le **sens**: préférez une `case class`
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les tuples
 
@@ -605,6 +626,7 @@ val triplet = (1, true, "plop") // tuple-3: un triplet
 pair._2
 triplet._3
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
@@ -614,14 +636,15 @@ Ajouter la comparaison
 (1, true) == (1, true)
 ((1, true), "plop") != (1, true,"plop")
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-pink exercice with-code big-code" -->
+<!-- .slide: class="exercice" -->
 
-## Exercice
+# Faire un programme de **Todo**
 
-Faire un programme de **Todo**
+## Exercice 0
 
 1. Créer une todo avec un libellé
 2. Terminer une todo
@@ -645,6 +668,7 @@ case class Todo(label: String) extends Task {
 val todo = Todo("Do that f**** exo")
 todo.done
 ```
+<!-- .element: class="big-code" -->
 
 ##==##
 
@@ -652,9 +676,9 @@ todo.done
 
 # Listes
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # `List`
 
@@ -667,10 +691,11 @@ Les `List` sont représentées par 2 états:
 Nil
 1 :: 2 :: 3 :: Nil
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # `List`
 
@@ -680,6 +705,7 @@ On utilise l'objet compagnon de `List` et sa méthode `apply` pour créer une li
 val strings = List("foo", "bar", "baz")
 strings(1) // strings.apply(1)
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
@@ -693,9 +719,9 @@ Notes:
 
 # Les Fonctions
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les Fonctions
 
@@ -713,6 +739,7 @@ case class Foo(s: String) {
 Foo("foo").+(Foo("bar")).+(Foo("baz"))
 Foo("foo") + Foo("bar") + Foo("baz")
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
@@ -722,9 +749,9 @@ Notes:
 - attention a la lisibilité ! Que veut dire `>>>` ?
 - A réserver pour des librairies plutôt que des applications et que le sens de l'opérateur soit partagé
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les Fonctions
 
@@ -743,6 +770,7 @@ Test("1 + 1 == 3") should {
   1 + 1 == 3
 }
 ```
+<!-- .element: class="big-code" -->
 
 ##==##
 
@@ -750,9 +778,9 @@ Test("1 + 1 == 3") should {
 
 # Les Boucles
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les boucles
 
@@ -763,10 +791,11 @@ for(x <- 1 to 5) print(s"$x ") // inclusif
 println("------")
 for(x <- 1 until 5) print(s"$x ") // exclusif
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les boucles
 
@@ -779,10 +808,11 @@ while(x < 5) {
   x = x + 1
 }
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les boucles
 
@@ -795,10 +825,11 @@ do {
   x = x + 1
 } while (x < 5)
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les boucles
 
@@ -807,16 +838,18 @@ do {
 ```scala
 for( x <- List("foo","bar")) print(s"$x ")
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # `for`-comprehension
 
 ```scala
 for (x <- List("foo", "bar")) yield x.toUpperCase
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
@@ -824,9 +857,9 @@ Notes:
 - une **for-comprehension** fait un traitement **et retournent une valeur** (c'est une **expression**)
 - faire un exemple avec un `if` et une sous-boucle
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # `for`-comprehension: filtrer
 
@@ -836,10 +869,11 @@ for {
   if x % 2 == 0
 } yield x
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # `for`-comprehension: imbriquer
 
@@ -849,6 +883,7 @@ for {
   y <- 1 to 3
 } yield (x,y)
 ```
+<!-- .element: class="big-code" -->
 
 ##==##
 
@@ -856,9 +891,9 @@ for {
 
 # Pattern matching
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Pattern matching
 
@@ -866,9 +901,9 @@ for {
 2. extraire des données
 3. en faire quelque-chose
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Pattern matching: comme un `switch`
 
@@ -878,10 +913,11 @@ for {
   case "no"  => "Non"
 }
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Pattern matching: voir le motif (1)
 
@@ -895,13 +931,14 @@ def head(xs: List[String]): String =
 head(List("a","b","c"))
 head(List())
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
 1. remplacer les `xs` par `_`
-   ##--##
+   ##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Pattern matching: voir le motif (2)
 
@@ -915,10 +952,11 @@ def print(person: Person) = person match {
 
 print(Person(Name("Joe"), 42))
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Pattern matching: voir le motif (3)
 
@@ -932,6 +970,7 @@ def print(person: Person) = {
 
 print(Person("Joe", 42))
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
@@ -942,10 +981,11 @@ val (x,y) = (1,2)
 val head :: _ = List(1,2,3)
 val oups :: _ = List()
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Pattern matching: l'ordre compte
 
@@ -961,10 +1001,11 @@ firstTwo(List("a", "b", "c"))
 firstTwo(List("foo"))
 firstTwo(List())
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Pattern matching: multi-cas
 
@@ -979,10 +1020,11 @@ def isVoyel(c: Char) = c match {
 isVoyel('a')
 isVoyel('b')
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Pattern matching: multi-cas
 
@@ -998,19 +1040,20 @@ def isVoyel(c: Char) =
 isVoyel('a')
 isVoyel('b')
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
 On est d'accord que cette implémentation est _foireuse_, le `List().contains` est plus lisible !
 C'est un exemple 😁
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-pink exercice with-code big-code" -->
+<!-- .slide: class="exercice" -->
 
-## Exercice
+# Faire un programme de **FizzBuzz**
+## Exercice 1
 
-Faire un programme de **FizzBuzz**
 
 1. Le programme prend des nombres de 1 a 100
 2. Si le nombre est un multiple de `3` afficher **Fizz**
@@ -1033,6 +1076,7 @@ for(x <- 1 to 100) yield
     case _      => x.toString
   }
 ```
+<!-- .element: class="big-code" -->
 
 ##==##
 
@@ -1040,9 +1084,9 @@ for(x <- 1 to 100) yield
 
 # Exception
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Exception
 
@@ -1051,10 +1095,11 @@ Comme en Java, `throw` pour lever une `Exception`
 ```scala
 throw new Exception("fail !!!")
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Exception
 
@@ -1067,6 +1112,7 @@ try {
   case e => e.getMessage
 }
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
@@ -1079,9 +1125,9 @@ Notes:
 
 # Lambda
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Lambda
 
@@ -1090,9 +1136,9 @@ C'est quoi ?
 - une fonction anonyme
 - une valeur
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Lambda
 
@@ -1107,10 +1153,11 @@ f(1)
 g(2)
 h(3)
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Lambda
 
@@ -1123,6 +1170,7 @@ val add: (Int, Int) => Int = (x, y) => x + y
 
 add(1, 2)
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
@@ -1134,10 +1182,11 @@ val add: ((Int, Int)) => Int = (pair) => pair._1 + pair._2
 val pair = (1,2)
 add(pair)
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Lambda
 
@@ -1150,6 +1199,7 @@ val add: Int => Int => Int = x => y => x + y
 
 add(1)(2)
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
@@ -1159,9 +1209,9 @@ Notes:
 
 Notion d'**application partielle**
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Application partielle
 
@@ -1176,10 +1226,11 @@ add1(3)
 val add2 = add(1, _, _)
 add2(2, 3)
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Composition de fonction
 
@@ -1192,9 +1243,9 @@ Au choix:
 
 Le résultat est passé comme argument a la fonction suivante
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Composition de fonction
 
@@ -1212,10 +1263,11 @@ second(one("andThen2"))
 (one _).compose(second)("compose")
 one(second("application"))
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Une fonction c'est une valeur
 
@@ -1227,6 +1279,7 @@ def operation(op: (Int, Int) => Int, x: Int, y: Int) =
 operation(_ + _, 1, 2)
 operation(_ * _, 2, 3)
 ```
+<!-- .element: class="big-code" -->
 
 ##==##
 
@@ -1234,9 +1287,9 @@ operation(_ * _, 2, 3)
 
 # API Collection
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # API Collection
 
@@ -1246,14 +1299,15 @@ Se passer des boucles
 List("foo","bar","baz")
   .map(s => s.toUpperCase)
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
 1. Utiliser `_` dans `s => s.toUpperCase`
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # API Collection
 
@@ -1264,14 +1318,15 @@ def upper(s:String) = s.toUpperCase
 
 List("foo","bar","baz").map(s => upper(s))
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
 Utiliser `upper` a la place de `s => upper(s)`
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # API Collection
 
@@ -1281,16 +1336,18 @@ Filtrer aussi
 List("scala","java","haskell","go","javascript")
   .filter(_.length > 4)
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les `Map`s
 
 ```scala
 Map(("foo", 1), ("bar", 2))
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
@@ -1307,10 +1364,11 @@ map.filter{
   case (k, _) => k.startsWith("f")
 }.foreach(println)
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # `Option`: Comment eviter `null` ?
 
@@ -1324,9 +1382,9 @@ Notes:
 - Comme une liste ne pouvant contenir que 0 ou 1 élément
 - l'interêt est d'être explicite sur la présence ou non d'une fonction
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # `Option`
 
@@ -1334,10 +1392,11 @@ Notes:
 val some: Option[Int]  = Some(1)
 val none: Option[Int] = None
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # `Option`
 
@@ -1350,6 +1409,7 @@ def head(xs: List[String]) = xs match {
 head(List("foo"))
 head(List())
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
@@ -1357,11 +1417,11 @@ Notes:
 2. Transformer avec `Option`
 3. montrer qu'on peut utiliser `map`
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-pink exercice with-code big-code" -->
+<!-- .slide: class="exercice" -->
 
-## Exercice
+## Exercice 2
 
 ✅Exo sur l'API collection, enchainer des `map`, `filter`...
 
@@ -1371,9 +1431,9 @@ Notes:
 
 # Génériques
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Génériques
 
@@ -1384,9 +1444,9 @@ ou _type paramétré_
 - `Option[Hero]`
 - ...
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Type parametré
 
@@ -1397,10 +1457,11 @@ ou _type paramétré_
 ```scala
 val xs: List = List()
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Type parametré
 
@@ -1415,6 +1476,7 @@ def head(xs: List[String]) : Option[String] = xs match {
 head(List("foo"))
 head(List(1,2))
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
@@ -1427,18 +1489,22 @@ def keys[K, V](kvs: Map[K, V]): Set[K] = kvs.keySet
 keys(Map(1 -> "a", 2 -> "b"))
 keys(Map("a" -> 1, "b" -> 2))
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-pink exercice with-code big-code" -->
+<!-- .slide: class="exercice" -->
 
-## Exercice
+# Implémenter `map`
+
+## Exercice 3
 
 Exercice implémenter `map` pour n'importe quelle `List`
 
 ```scala
 map(List(1,2), i => i + 1) // List(2,3)
 ```
+<!-- .element: class="big-code" -->
 
 🚫Utiliser `List.map`
 
@@ -1460,6 +1526,7 @@ map[Int,Int](List(1,2), _ + 1)
 
 map(List(1,2), (_: Int) + 1)
 ```
+<!-- .element: class="big-code" -->
 
 ##==##
 
@@ -1467,9 +1534,9 @@ map(List(1,2), (_: Int) + 1)
 
 # `trait`
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les `trait`s
 
@@ -1486,22 +1553,23 @@ case class Person(name: String, age: Int) extends Votant
 
 Person("John", 19).canVote
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
 Faire remarquer que la méthode `age` dans le `trait` est implémenté par la propriété `age` de la `case class`
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les `trait`s: Héritage en diamant
 
 ![Héritage en diamant](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Diamond_inheritance.svg/440px-Diamond_inheritance.svg.png)
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les `trait`s: Héritage en diamant
 
@@ -1524,6 +1592,7 @@ case class CyberDog() extends Dog with Robot
 
 CyberDog().say
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
@@ -1533,10 +1602,11 @@ Ajouter:
 case class DogBot() extends Robot with Dog
 DogBot().say
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les `trait`s: Mixins
 
@@ -1562,10 +1632,11 @@ class PersonRepository extends Repository[Person] with Connexion {
 
 new PersonRepository().save(Person("John"))
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les `trait`s: Mixins
 
@@ -1575,9 +1646,9 @@ Notes:
 
 Dans l'exemple précédent il ne serai pas facile de remplacer la **chaine de connexion** dans `Connexion`
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les `trait`s scellés
 
@@ -1596,28 +1667,30 @@ def switch(feu: Feu): Feu = feu match {
 switch(Rouge)
 switch(Vert)
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
 1. Ajouter le `case object Orange`: montrer l'échec du _pattern matching_
 2. Ajouter `sealed` sur le `trait`: montrer le warning sur le _pattern matching_
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Les `trait`s scellés
 
 - `sealed` empêche d'étendre le `trait` en dehors de son fichier de déclaration
 - le `trait` scellé et ces sous-types forment un **A**lgebraic **D**ata **T**ype: **ADT**
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-pink exercice with-code big-code" -->
+<!-- .slide: class="exercice" -->
 
-## Exercice
+# Faire un **ADT** pour **`Maybe`**
 
-Faire un **ADT** pour **`Maybe`**
+## Exercice 4
+
 
 **`Maybe`** fonctionne comme une **`Option`**, avec
 
@@ -1644,6 +1717,7 @@ def head[A](xs: List[A]): Maybe[A] = xs match {
 
 head(List("foo","bar"))
 ```
+<!-- .element: class="big-code" -->
 
 ##==##
 
@@ -1651,9 +1725,9 @@ head(List("foo","bar"))
 
 # Immutabilité
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Pourquoi l'immuabilité ?
 
@@ -1661,9 +1735,9 @@ head(List("foo","bar"))
 - Modification par copie
 - Pas d'influence externe _cachée_ (parallélisme)
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Valeur vs variable
 
@@ -1678,10 +1752,11 @@ mutable = 4
 immutable
 mutable
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # `case class`
 
@@ -1700,10 +1775,11 @@ case class Mutable(var x: Int)
 val mutable = Mutable(42)
 mutable.x = 1
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Collection
 
@@ -1722,6 +1798,7 @@ mutables += 4
 mutables.+=(5)
 mutables
 ```
+<!-- .element: class="big-code" -->
 
 ##==##
 
@@ -1729,9 +1806,9 @@ mutables
 
 # `Implicit`
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # `Implicit`
 
@@ -1739,9 +1816,9 @@ mutables
 
 > C'est pas parce qu'on peut le faire qu'il faut le faire
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # `Implicit`
 
@@ -1754,14 +1831,15 @@ def increment(implicit x: Int) = x + 1
 
 increment(2)
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
 - dans un groupe de paramètre, `implicit` s'applique a l'ensemble
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # `Implicit`
 
@@ -1777,17 +1855,17 @@ Notes:
 
 👎passer un service, repository, de la conf...
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # `Implicit`
 
 Par contre ça permet des trucs assez cool 🤩
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Pimp my library
 
@@ -1800,16 +1878,19 @@ implicit class StringOps(s: String) {
 
 "World".hello
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
 Disponible partout où vous importerez `StringOps`
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-pink exercice with-code big-code" -->
+<!-- .slide: class="bg-pink exercice with-code big-code" -->
 
-## Exercice
+# Implémenter un opérateur `|>` pour chainer des fonctions
+
+## Exercice 5
 
 Implémenter un opérateur `|>` disponible pour **n'importe quelle valeur**
 
@@ -1819,6 +1900,7 @@ Implémenter un opérateur `|>` disponible pour **n'importe quelle valeur**
 case class Person(name: String)
 Person("Joe") |> (p => p.copy(name = "bob")) // Person(bob)
 ```
+<!-- .element: class="big-code" -->
 
 Notes:
 
@@ -1829,10 +1911,11 @@ implicit class PipelineOps[A](a: A) {
   def |>[B](f: A => B): B = f(a)
 }
 ```
+<!-- .element: class="big-code" -->
 
-##--##
+##==##
 
-<!-- .slide: class="sfeir-bg-white-1 with-code-dark big-code" -->
+<!-- .slide: class="with-code consolas" -->
 
 # Typeclass
 

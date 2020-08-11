@@ -1,8 +1,8 @@
-<!-- .slide: class="transition-white sfeir-bg-red" -->
+<!-- .slide: class="transition bg-pink" -->
 
 # Installation
 
-##--##
+##==##
 
 <!-- .slide: class="sfeir-bg-white-1" -->
 

@@ -1,8 +1,8 @@
-<!-- .slide: class="transition-white sfeir-bg-red" -->
+<!-- .slide: class="transition bg-pink" -->
 
 # Introduction
 
-##--##
+##==##
 
 <!-- .slide: class="sfeir-bg-white-1" -->
 
@@ -11,7 +11,7 @@
 - Crée en 2004
 - Par Martin Odersky
 - a l'EPFL (Suisse)
-  ##--##
+  ##==##
 
 <!-- .slide: class="sfeir-bg-white-1" -->
 

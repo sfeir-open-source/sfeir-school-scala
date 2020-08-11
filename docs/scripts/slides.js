@@ -1,17 +1,27 @@
 // One method per module
 function schoolSlides() {
-  return ['00-school/00-TITLE.md', '00-school/speaker-jef.md'];
+  return ['00-school/00-TITLE.md', '00-school/speaker-elo.md'];
 }
 
 function introSlides() {
-  return ['intro/00-TITLE.md'];
+  return ['01-intro/00-TITLE.md'];
+}
+
+function installation() {
+  return ['02-installation/00-TITLE.md'];
+}
+
+function basics() {
+  return ['03-basics/00-TITLE.md'];
 }
 
 function formation() {
   return [
     //
     ...schoolSlides(), //
-    ...introSlides() //
+    ...introSlides(), //
+    ...installation(),
+    ...basics()
   ].map(slidePath => {
     return { path: slidePath };
   });
