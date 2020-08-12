@@ -264,9 +264,7 @@ add(1)(2)
 
 <!-- .slide: class="with-code consolas" -->
 
-# Evaluation
-
-## `val` vs `lazy val` vs `def`
+# Evaluation: `val`
 
 **`val`** évaluation **immediate** et **une seule fois**
 
@@ -289,9 +287,7 @@ Faire remarque l'utilisation d'un bloc de code `{ ... }`
 
 <!-- .slide: class="with-code consolas" -->
 
-# Evaluation
-
-## `val` vs `lazy val` vs `def`
+# Evaluation: `lazy val`
 
 **`lazy val`** évaluation au **premier appel** et **une seule fois**
 
@@ -311,9 +307,7 @@ s"evalute it now ! $lazyEvaluation"
 
 <!-- .slide: class="with-code consolas" -->
 
-# Evaluation
-
-## `val` vs `lazy val` vs `def`
+# Evaluation: `def`
 
 **`def`** évaluation a **l'appel** et **a chaque fois**
 
@@ -645,8 +639,6 @@ Ajouter la comparaison
 
 # Faire un programme de **Todo**
 
-## Exercice 0
-
 1. Créer une todo avec un libellé
 2. Terminer une todo
 3. _[Optionel]_ Ajouter une date de réalisation
@@ -796,9 +788,7 @@ for(x <- 1 until 5) print(s"$x ") // exclusif
 
 <!-- .slide: class="with-code consolas" -->
 
-# Les boucles
-
-## `while`
+# Les boucles: `while`
 
 ```scala
 var x = 0
@@ -813,9 +803,7 @@ while(x < 5) {
 
 <!-- .slide: class="with-code consolas" -->
 
-# Les boucles
-
-## `do while`
+# Les boucles `do while`
 
 ```scala
 var x = 0
@@ -830,9 +818,7 @@ do {
 
 <!-- .slide: class="with-code consolas" -->
 
-# Les boucles
-
-## for-each
+# Les boucles: for-each
 
 ```scala
 for( x <- List("foo","bar")) print(s"$x ")
@@ -1049,8 +1035,6 @@ C'est un exemple 😁
 <!-- .slide: class="exercice" -->
 
 # Faire un programme de **FizzBuzz**
-## Exercice 1
-
 
 1. Le programme prend des nombres de 1 a 100
 2. Si le nombre est un multiple de `3` afficher **Fizz**
@@ -1156,9 +1140,7 @@ h(3)
 
 <!-- .slide: class="with-code consolas" -->
 
-# Lambda
-
-## Plusieurs paramètres
+# Lambda: plusieurs paramètres
 
 grouper les paramètres
 
@@ -1185,9 +1167,7 @@ add(pair)
 
 <!-- .slide: class="with-code consolas" -->
 
-# Lambda
-
-## Plusieurs paramètres
+# Lambda: plusieurs paramètres
 
 fonction qui retourne une fonction (_currying_)
 
@@ -1418,8 +1398,7 @@ Notes:
 ##==##
 
 <!-- .slide: class="exercice" -->
-
-## Exercice 2
+# TODO
 
 ✅Exo sur l'API collection, enchainer des `map`, `filter`...
 
@@ -1494,8 +1473,6 @@ keys(Map("a" -> 1, "b" -> 2))
 <!-- .slide: class="exercice" -->
 
 # Implémenter `map`
-
-## Exercice 3
 
 Exercice implémenter `map` pour n'importe quelle `List`
 
@@ -1685,9 +1662,6 @@ Notes:
 <!-- .slide: class="exercice" -->
 
 # Faire un **ADT** pour **`Maybe`**
-
-## Exercice 4
-
 
 **`Maybe`** fonctionne comme une **`Option`**, avec
 
@@ -1892,8 +1866,6 @@ Disponible partout où vous importerez `StringOps`
 <!-- .slide: class="exercice with-code big-code" -->
 
 # Implémenter un opérateur `|>` pour chainer des fonctions
-
-## Exercice 5
 
 Implémenter un opérateur `|>` disponible pour **n'importe quelle valeur**
 
