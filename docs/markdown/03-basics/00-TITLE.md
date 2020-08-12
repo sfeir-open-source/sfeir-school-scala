@@ -25,6 +25,7 @@ Notes:
 
 ##==##
 
+<!-- .slide: class="with-code consolas" -->
 # Les variables
 
 `val` vs `var`
@@ -46,6 +47,7 @@ Notes:
 
 ##==##
 
+<!-- .slide: class="with-code consolas" -->
 # Les conditions
 
 ```scala
@@ -155,7 +157,7 @@ Notes:
 
 ##==##
 
-<!-- .slide: class="transition-white sfeir-bg-red" -->
+<!-- .slide: class="transition-white bg-pink" -->
 
 # Les Fonctions
 
@@ -362,7 +364,7 @@ Ajouter le `=>` dans la fonction `logDebug`
 
 ##==##
 
-<!-- .slide: class="transition-white sfeir-bg-red" -->
+<!-- .slide: class="transition-white bg-pink" -->
 
 # Classes
 
@@ -405,8 +407,7 @@ Notes:
 On peut faire des `class`
 
 ```scala
-class Animal(name: String) {
-}
+class Animal(name: String) { }
 
 new Animal("Scoubidou")
 ```
@@ -427,9 +428,9 @@ pas de `getter`, `equals`...
 Mais les `case class` c'est beaucoup mieux
 
 ```scala
-case class Animal(name: String, species: String)
+case class Animal(name: String)
 
-new Animal("Scoubidou", "Chien")
+new Animal("Scoubidou")
 ```
 <!-- .element: class="big-code" -->
 
@@ -574,7 +575,7 @@ On peut _aliaser_ un type avec `type`
 type Name = String
 type Password = String
 
-def login(name: Name, password: Password) = s"\$name successfully log in"
+def login(name: Name, password: Password) = s"$name successfully log in"
 
 login("John", "pwd123")
 ```
@@ -582,7 +583,7 @@ login("John", "pwd123")
 
 ##==##
 
-<!-- .slide: class="transition-white sfeir-bg-red" -->
+<!-- .slide: class="transition-white bg-pink" -->
 
 # Les tuples
 
@@ -657,12 +658,10 @@ Ajouter la comparaison
 Notes:
 
 ```scala
-import java.time.ZonedDateTime
-
 class Task
-case class Done(label: String, date: ZonedDateTime) extends Task
+case class Done(label: String) extends Task
 case class Todo(label: String) extends Task {
-  val done = Done(label, ZonedDateTime.now)
+  val done = Done(label)
 }
 
 val todo = Todo("Do that f**** exo")
@@ -672,7 +671,7 @@ todo.done
 
 ##==##
 
-<!-- .slide: class="transition-white sfeir-bg-red" -->
+<!-- .slide: class="transition-white bg-pink" -->
 
 # Listes
 
@@ -715,7 +714,7 @@ Notes:
 
 ##==##
 
-<!-- .slide: class="transition-white sfeir-bg-red" -->
+<!-- .slide: class="transition-white bg-pink" -->
 
 # Les Fonctions
 
@@ -774,7 +773,7 @@ Test("1 + 1 == 3") should {
 
 ##==##
 
-<!-- .slide: class="transition-white sfeir-bg-red" -->
+<!-- .slide: class="transition-white bg-pink" -->
 
 # Les Boucles
 
@@ -854,8 +853,6 @@ for (x <- List("foo", "bar")) yield x.toUpperCase
 Notes:
 
 - les boucles précédentes exécutent un traitement et **ne retournent rien**
-- une **for-comprehension** fait un traitement **et retournent une valeur** (c'est une **expression**)
-- faire un exemple avec un `if` et une sous-boucle
 
 ##==##
 
@@ -887,7 +884,7 @@ for {
 
 ##==##
 
-<!-- .slide: class="transition-white sfeir-bg-red" -->
+<!-- .slide: class="transition-white bg-pink" -->
 
 # Pattern matching
 
@@ -1080,7 +1077,7 @@ for(x <- 1 to 100) yield
 
 ##==##
 
-<!-- .slide: class="transition-white sfeir-bg-red" -->
+<!-- .slide: class="transition-white bg-pink" -->
 
 # Exception
 
@@ -1121,7 +1118,7 @@ Notes:
 
 ##==##
 
-<!-- .slide: class="transition-white sfeir-bg-red" -->
+<!-- .slide: class="transition-white bg-pink" -->
 
 # Lambda
 
@@ -1283,7 +1280,7 @@ operation(_ * _, 2, 3)
 
 ##==##
 
-<!-- .slide: class="transition-white sfeir-bg-red" -->
+<!-- .slide: class="transition-white bg-pink" -->
 
 # API Collection
 
@@ -1380,7 +1377,8 @@ La classe `Option` permet de représenter la présence ou l'absence de valeur:
 Notes:
 
 - Comme une liste ne pouvant contenir que 0 ou 1 élément
-- l'interêt est d'être explicite sur la présence ou non d'une fonction
+- l'interêt est d'être explicite sur la présence ou non d'une valeur
+- Scala connait `null` mais c'est très peu utiliser
 
 ##==##
 
@@ -1427,7 +1425,7 @@ Notes:
 
 ##==##
 
-<!-- .slide: class="transition-white sfeir-bg-red" -->
+<!-- .slide: class="transition-white bg-pink" -->
 
 # Génériques
 
@@ -1526,11 +1524,10 @@ map[Int,Int](List(1,2), _ + 1)
 
 map(List(1,2), (_: Int) + 1)
 ```
-<!-- .element: class="big-code" -->
 
 ##==##
 
-<!-- .slide: class="transition-white sfeir-bg-red" -->
+<!-- .slide: class="transition-white bg-pink" -->
 
 # `trait`
 
@@ -1717,11 +1714,10 @@ def head[A](xs: List[A]): Maybe[A] = xs match {
 
 head(List("foo","bar"))
 ```
-<!-- .element: class="big-code" -->
 
 ##==##
 
-<!-- .slide: class="transition-white sfeir-bg-red" -->
+<!-- .slide: class="transition-white bg-pink" -->
 
 # Immutabilité
 
@@ -1777,6 +1773,8 @@ mutable.x = 1
 ```
 <!-- .element: class="big-code" -->
 
+Notes:
+- commenter `mutable.x = 1`
 ##==##
 
 <!-- .slide: class="with-code consolas" -->
@@ -1799,10 +1797,13 @@ mutables.+=(5)
 mutables
 ```
 <!-- .element: class="big-code" -->
+Notes:
+
+- commenter `mutables += ...`
 
 ##==##
 
-<!-- .slide: class="transition-white sfeir-bg-red" -->
+<!-- .slide: class="transition-white bg-pink" -->
 
 # `Implicit`
 
@@ -1835,6 +1836,7 @@ increment(2)
 
 Notes:
 
+- enlever l'argument et voir qu'on utilise
 - dans un groupe de paramètre, `implicit` s'applique a l'ensemble
 
 ##==##
@@ -1852,8 +1854,9 @@ Notes:
 Notes:
 
 👍**Akka** (lib de streaming) l'utilise pour passer un contexte technique (pour simplifier un thread manager)
+👍Utiliser par **Scala** pour passer l'`ExecutionContext` (une sorte de manager de thread) des `Future`s
 
-👎passer un service, repository, de la conf...
+👎passer un service, repository, de la conf..., ce n'est fait qu'à un seul endroit (généralement) donc pas beaucoup de valeur ajouté
 
 ##==##
 
@@ -1886,7 +1889,7 @@ Disponible partout où vous importerez `StringOps`
 
 ##==##
 
-<!-- .slide: class="bg-pink exercice with-code big-code" -->
+<!-- .slide: class="exercice with-code big-code" -->
 
 # Implémenter un opérateur `|>` pour chainer des fonctions
 
@@ -1912,17 +1915,3 @@ implicit class PipelineOps[A](a: A) {
 }
 ```
 <!-- .element: class="big-code" -->
-
-##==##
-
-<!-- .slide: class="with-code consolas" -->
-
-# Typeclass
-
-- Ad-hoc polymorphisme: _dire qu'une classe implémente une interface après se création_
-- même idée que **Pimp my library** mais plus poussée
-- met en oeuvre des concepts avancés
-
-=> Trop complexe pour cette formation mais super cool 👍
-
-[A lire plus tard](https://scalac.io/typeclasses-in-scala/)
