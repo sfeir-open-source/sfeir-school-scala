@@ -635,7 +635,7 @@ Ajouter la comparaison
 
 ##==##
 
-<!-- .slide: class="exercice" -->
+<!-- .slide: class="exercice with-code consolas" -->
 
 # Faire un programme de **Todo**
 
@@ -1032,7 +1032,7 @@ C'est un exemple 😁
 
 ##==##
 
-<!-- .slide: class="exercice" -->
+<!-- .slide: class="exercice with-code consolas" -->
 
 # Faire un programme de **FizzBuzz**
 
@@ -1397,7 +1397,7 @@ Notes:
 
 ##==##
 
-<!-- .slide: class="exercice" -->
+<!-- .slide: class="exercice with-code consolas" -->
 # TODO
 
 ✅Exo sur l'API collection, enchainer des `map`, `filter`...
@@ -1470,14 +1470,15 @@ keys(Map("a" -> 1, "b" -> 2))
 
 ##==##
 
-<!-- .slide: class="exercice" -->
+<!-- .slide: class="exercice with-code consolas" -->
 
 # Implémenter `map`
 
-Exercice implémenter `map` pour n'importe quelle `List`
+Implémenter `map` pour n'importe quelle `List`
 
 ```scala
 map(List(1,2), i => i + 1) // List(2,3)
+map(List(1,2), i => i.toString)
 ```
 <!-- .element: class="big-code" -->
 
@@ -1519,12 +1520,10 @@ Comme une `interface` en Java mais avec la possibilité d'implémenter des méth
 ```scala
 trait Votant {
   def age: Int
-
   val canVote:Boolean = age > 18
 }
 
 case class Person(name: String, age: Int) extends Votant
-
 Person("John", 19).canVote
 ```
 <!-- .element: class="big-code" -->
@@ -1659,7 +1658,7 @@ Notes:
 
 ##==##
 
-<!-- .slide: class="exercice" -->
+<!-- .slide: class="exercice with-code consolas" -->
 
 # Faire un **ADT** pour **`Maybe`**
 
