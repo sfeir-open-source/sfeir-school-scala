@@ -189,7 +189,7 @@ Vous pouvez mettre des accolades s'il y a plusieurs lignes
 Paramètres nommés
 
 ```scala
-def namedParameters(s1: String, s2: String): String = s"$s1 $s2"
+def namedParameters(s1: String, s2: String): String = s"s1 = $s1, s2 = $s2"
 
 namedParameters("foo", "bar")
 namedParameters(s2 = "foo", s1 = "bar")
@@ -205,7 +205,7 @@ namedParameters(s2 = "foo", s1 = "bar")
 Paramètres optionels
 
 ```scala
-def maybeParams(s1: String = "nope", s2: String = "nope"): String = s"$s1 $s2"
+def maybeParams(s1: String = "nope", s2: String = "nope"): String = s"s1 = $s1, s2 = $s2"
 
 maybeParams("FOO", "BAR")
 maybeParams(s2 = "BAR", s1 = "FOO")
@@ -274,7 +274,6 @@ val evaluatedAtCreation = {
   1
 }
 
-println("After init")
 evaluatedAtCreation
 evaluatedAtCreation
 ```
@@ -297,9 +296,8 @@ lazy val lazyEvaluation = {
   2
 }
 
-println("not yet evaluated")
-s"evalute it now ! $lazyEvaluation"
-s"evalute it now ! $lazyEvaluation"
+lazyEvaluation
+lazyEvaluation
 ```
 <!-- .element: class="big-code" -->
 
@@ -317,9 +315,8 @@ def eachTime = {
   3
 }
 
-println("not yet evaluated")
-s"evaluate it at each call $eachTime"
-s"evaluate it at each call $eachTime"
+eachTime
+eachTime
 ```
 <!-- .element: class="big-code" -->
 
@@ -327,9 +324,7 @@ s"evaluate it at each call $eachTime"
 
 <!-- .slide: class="with-code consolas" -->
 
-# Evaluation
-
-_call by name_ vs _call by value_
+# Evaluation: _call by name_ vs _call by value_
 
 - **call by value**: paramètre évalué à **l'appel de méthode**
 - **call by name**: paramètre évalué **s'il est utilisé**
@@ -354,7 +349,7 @@ logDebug({
 
 Notes:
 
-Ajouter le `=>` dans la fonction `logDebug`
+Ajouter le `=>` dans la fonction `logDebug`, le 2ième appel n'est alors pas évalué
 
 ##==##
 
