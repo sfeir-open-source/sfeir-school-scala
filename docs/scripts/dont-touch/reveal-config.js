@@ -75,8 +75,8 @@ import { usedSlides } from '../slides.js';
           },
           {
             src: './web_modules/reveal.js/plugin/copycode/copycode.js',
+            async: true,
             condition: function () {
-              console.log("coucou")
               return true;
             },
           },
