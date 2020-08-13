@@ -71,8 +71,15 @@ import { usedSlides } from '../slides.js';
             async: true,
             condition: function() {
               return !!document.body.classList;
-            }
-          }
+            },
+          },
+          {
+            src: './web_modules/reveal.js/plugin/copycode/copycode.js',
+            condition: function () {
+              console.log("coucou")
+              return true;
+            },
+          },
           // { src: 'node_modules/reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
           // { src: 'node_modules/reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
         ]

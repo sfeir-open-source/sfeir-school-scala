@@ -1538,6 +1538,7 @@ Faire remarquer que la méthode `age` dans le `trait` est implémenté par la pr
 
 # Les `trait`s: Héritage en diamant
 
+
 ![Héritage en diamant](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Diamond_inheritance.svg/440px-Diamond_inheritance.svg.png)
 
 ##==##
